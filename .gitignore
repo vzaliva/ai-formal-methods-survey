@@ -12,3 +12,6 @@ survey.run.xml
 survey.auxlock
 survey.bcf
 survey.blg
+.claude/
+.mcp.json
+
