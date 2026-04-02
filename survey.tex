@@ -50,7 +50,7 @@ Every entry cited in the body appears in the bibliography with a clickable URL, 
 \section{Scope and structure}
 This pack is organised around the two-way intersection between large language models and formal methods:
 \emph{formal methods for constraining or checking AI-assisted software development}, and
-\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The report is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with separate research and industry subsections, and with an additional classification by technical area. Representative surveys and roadmaps that frame the field include the main autoformalisation survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{weng2025autoformalizationeralargelanguage,beg2025shortsurveyformalisingsoftware,li2024surveydeeplearningtheorem,zhang2024fusionlargelanguagemodels,yang2024formalmathematicalreasoningnew,roadmap_requirements_engineering_llms_2025}
+\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The report is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with separate research and industry subsections, and with an additional classification by technical area. Representative surveys and roadmaps that frame the field include the main autoformalisation survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
 
 \section{Taxonomy}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.43\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
@@ -74,7 +74,7 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 \begin{itemize}
 \item \textbf{VERIFAI}. Early project on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
 \item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
-\item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{chen2024nl2tltransformingnaturallanguages}
+\item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{DBLP:conf/emnlp/ChenGZF23}
 \item \textbf{TLAiBench}. A benchmark repository for TLA+ specification tasks.~\cite{tlai_bench_project}
 \item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{xia2026doc2specsynthesizingformalprogramming}
 \item \textbf{Trustworthy formal natural-language specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{gordon2023trustworthyformalnaturallanguage}
@@ -82,31 +82,31 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \subsubsection{Verified code generation and proof synthesis for code}\label{subsec:projects-research-vcode}
 \begin{itemize}
-\item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants and proof-oriented annotations.~\cite{poesia2024dafnyannotatoraiassistedverificationdafny}
+\item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants and proof-oriented annotations.~\cite{DBLP:journals/corr/abs-2411-15143}
 \item \textbf{AlphaVerus}. Self-improving verified code generation for Verus/Rust.~\cite{alphaverus_project}
-\item \textbf{RAG-Verus}. Repository-level proof synthesis for Verus with retrieval augmentation and repository context.~\cite{zhong2025ragverusrepositorylevelprogramverification}
-\item \textbf{VeCoGen}. Formally verified C generation using LLMs plus a verifier-guided refinement loop.~\cite{sevenhuijsen2025vecogenautomatinggenerationformally}
-\item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{xin2026verisoftbenchrepositoryscaleformalverification}
+\item \textbf{RAG-Verus}. Repository-level proof synthesis for Verus with retrieval augmentation and repository context.~\cite{DBLP:journals/corr/abs-2502-05344}
+\item \textbf{VeCoGen}. Formally verified C generation using LLMs plus a verifier-guided refinement loop.~\cite{DBLP:conf/icse-formalise/SevenhuijsenEN25}
+\item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{DBLP:journals/corr/abs-2602-18307}
 \end{itemize}
 
 \subsubsection{AI-assisted mechanised proving}\label{subsec:projects-research-mech}
 \begin{itemize}
-\item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{yang2023leandojotheoremprovingretrievalaugmented}
+\item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{DBLP:journals/corr/abs-2306-15626}
 \item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search and premise selection.~\cite{lean_copilot_2025}
-\item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{xin2024deepseekproveradvancingtheoremproving,deepseek_prover_v15_repo}
+\item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{DBLP:journals/corr/abs-2405-14333,deepseek_prover_v15_repo}
 \item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{apollo_2025}
 \item \textbf{AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback; introduced in Agentic Program Verification.~\cite{tu2026agenticverificationsoftwaresystems}
 \item \textbf{Isabellm}. A lightweight Isabelle/HOL prover with both a paper and an open implementation.~\cite{hou2026vibecodingllmpoweredtheorem,llm_isabelle_repo}
-\item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{yin2025generatingmillionsleantheorems}
+\item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{DBLP:journals/corr/abs-2503-04772}
 \end{itemize}
 
 \subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:projects-research-temp}
 \begin{itemize}
 \item \textbf{Retrieval-augmented TLAPS proof generation}. LLM-assisted proof generation for TLAPS using retrieved verified proof fragments.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
-\item \textbf{Language-model-guided TLA+ proof automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{zhou2026languagemodelguidedtla}
-\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{yan2024assertllmgeneratinghardwareverification}
-\item \textbf{FVEval}. A benchmark and evaluation framework for hardware formal-verification tasks.~\cite{kang2024fvevalunderstandinglanguagemodel}
-\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{rajabi2026stellarstructureguidedllmassertion}
+\item \textbf{Language-model-guided TLA+ proof automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{DBLP:journals/corr/abs-2512-09758}
+\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
+\item \textbf{FVEval}. A benchmark and evaluation framework for hardware formal-verification tasks.~\cite{DBLP:journals/corr/abs-2410-23299}
+\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
 \end{itemize}
 
 \subsection{Industry and joint industry--academic projects}
@@ -121,9 +121,9 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \begin{itemize}
 \item \textbf{Microsoft verus-proof-synthesis}. Umbrella repository for Microsoft's Verus verification automation stack.~\cite{microsoft_verus_proof_synthesis_repo}
-\item \textbf{AutoVerus}. Automated proof generation for Rust/Verus.~\cite{yang2025autoverusautomatedproofgeneration}
-\item \textbf{VeruSAGE}. Agent-based verification for repository-scale Rust systems.~\cite{yang2025verusagestudyagentbasedverification}
-\item \textbf{VeriStruct}. Planner-based verification of Verus data-structure modules.~\cite{sun2026veristructaiassistedautomatedverification}
+\item \textbf{AutoVerus}. Automated proof generation for Rust/Verus.~\cite{DBLP:journals/pacmpl/YangLMYCGHLLL0Z25}
+\item \textbf{VeruSAGE}. Agent-based verification for repository-scale Rust systems.~\cite{DBLP:journals/corr/abs-2512-18436}
+\item \textbf{VeriStruct}. Planner-based verification of Verus data-structure modules.~\cite{DBLP:journals/corr/abs-2510-25015}
 \end{itemize}
 
 \subsubsection{Formal mathematics and conjectures}
@@ -137,7 +137,7 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \begin{itemize}
 \item \textbf{Automotive C generation with formal verification}. Joint industry-academic evaluation on safety-critical automotive software.~\cite{safety_critical_automotive_2025}
-\item \textbf{AssertLLM}. Joint academic-industry hardware FV workflow.~\cite{yan2024assertllmgeneratinghardwareverification}
+\item \textbf{AssertLLM}. Joint academic-industry hardware FV workflow.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
 \end{itemize}
 
 \section{Papers}\label{sec:papers}
@@ -146,20 +146,20 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \subsubsection{Surveys and roadmaps}
 \begin{itemize}
-\item \textbf{Autoformalisation survey}.~\cite{weng2025autoformalizationeralargelanguage}
-\item \textbf{Survey on LLMs for software-requirement formalisation}.~\cite{beg2025shortsurveyformalisingsoftware}
-\item \textbf{Survey on deep learning for theorem proving}.~\cite{li2024surveydeeplearningtheorem}
-\item \textbf{Roadmap on LLMs and formal methods for trustworthy agents}.~\cite{zhang2024fusionlargelanguagemodels}
-\item \textbf{Formal mathematical reasoning as an AI frontier}.~\cite{yang2024formalmathematicalreasoningnew}
-\item \textbf{Two-way roadmap between requirements engineering and LLMs}.~\cite{roadmap_requirements_engineering_llms_2025}
+\item \textbf{Autoformalisation survey}.~\cite{DBLP:journals/corr/abs-2505-23486}
+\item \textbf{Survey on LLMs for software-requirement formalisation}.~\cite{DBLP:journals/corr/abs-2506-11874}
+\item \textbf{Survey on deep learning for theorem proving}.~\cite{DBLP:journals/corr/abs-2404-09939}
+\item \textbf{Roadmap on LLMs and formal methods for trustworthy agents}.~\cite{DBLP:journals/corr/abs-2412-06512}
+\item \textbf{Formal mathematical reasoning as an AI frontier}.~\cite{DBLP:conf/icml/YangPHLLCS25}
+\item \textbf{Two-way roadmap between requirements engineering and LLMs}.~\cite{DBLP:journals/infsof/FerrariS25}
 \end{itemize}
 
 \subsubsection{Specification generation and requirements formalisation}\label{subsec:papers-research-spec}
 \begin{itemize}
-\item \textbf{Formal Specifications from Natural Language}.~\cite{hahn2022formalspecificationsnaturallanguage}
-\item \textbf{Autoformalization with Large Language Models}.~\cite{wu2022autoformalizationlargelanguagemodels}
+\item \textbf{Formal Specifications from Natural Language}.~\cite{DBLP:journals/corr/abs-2206-01962}
+\item \textbf{Autoformalization with Large Language Models}.~\cite{DBLP:journals/corr/abs-2205-12615}
 \item \textbf{nl2spec}.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
-\item \textbf{NL2TL}.~\cite{chen2024nl2tltransformingnaturallanguages}
+\item \textbf{NL2TL}.~\cite{DBLP:conf/emnlp/ChenGZF23}
 \item \textbf{SpecGen}.~\cite{ma2025specgenautomatedgenerationformal}
 \item \textbf{Specify What?}.~\cite{granberry2024specifywhatenhancingneural}
 \item \textbf{Seeking Specifications}.~\cite{granberry2025seekingspecificationscaseneurosymbolic}
@@ -170,61 +170,61 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \subsubsection{Verified code generation and proof synthesis for code}\label{subsec:papers-research-vcode}
 \begin{itemize}
-\item \textbf{DafnyBench}.~\cite{loughridge2024dafnybenchbenchmarkformalsoftware}
-\item \textbf{DafnySynth / dafny-annotator}.~\cite{poesia2024dafnyannotatoraiassistedverificationdafny}
-\item \textbf{Laurel}.~\cite{mugnier2025laurelunblockingautomatedverification}
-\item \textbf{Verification with Ada/SPARK}.~\cite{cramer2025verifyingllmgeneratedcodecontext}
-\item \textbf{LLM code generation with formal specifications and reactive synthesis}.~\cite{murphy2024combiningllmcodegeneration}
-\item \textbf{VeCoGen}.~\cite{sevenhuijsen2025vecogenautomatinggenerationformally}
-\item \textbf{Automatic generation of specification and verification annotations using LLMs and test oracles}.~\cite{faria2026automaticgenerationformalspecification}
-\item \textbf{Evaluating LLM-generated ACSL annotations}.~\cite{beg2026evaluatingllmgeneratedacslannotations}
-\item \textbf{RAG-Verus}.~\cite{zhong2025ragverusrepositorylevelprogramverification}
+\item \textbf{DafnyBench}.~\cite{DBLP:journals/tmlr/LoughridgeSACS025}
+\item \textbf{DafnySynth / dafny-annotator}.~\cite{DBLP:journals/corr/abs-2411-15143}
+\item \textbf{Laurel}.~\cite{DBLP:journals/pacmpl/MugnierGPJY25}
+\item \textbf{Verification with Ada/SPARK}.~\cite{DBLP:conf/icsoft/CramerM25}
+\item \textbf{LLM code generation with formal specifications and reactive synthesis}.~\cite{DBLP:journals/corr/abs-2410-19736}
+\item \textbf{VeCoGen}.~\cite{DBLP:conf/icse-formalise/SevenhuijsenEN25}
+\item \textbf{Automatic generation of specification and verification annotations using LLMs and test oracles}.~\cite{DBLP:journals/corr/abs-2601-12845}
+\item \textbf{Evaluating LLM-generated ACSL annotations}.~\cite{DBLP:journals/corr/abs-2602-13851}
+\item \textbf{RAG-Verus}.~\cite{DBLP:journals/corr/abs-2502-05344}
 \end{itemize}
 
 \subsubsection{AI-assisted mechanised proving}\label{subsec:papers-research-mech}
 \begin{itemize}
-\item \textbf{GPT-f}.~\cite{polu2020generativelanguagemodelingautomated}
-\item \textbf{miniF2F}.~\cite{zheng2022minif2fcrosssystembenchmarkformal}
-\item \textbf{Draft, Sketch, and Prove}.~\cite{jiang2023draftsketchproveguiding}
-\item \textbf{ProofNet}.~\cite{azerbayev2023proofnetautoformalizingformallyproving}
-\item \textbf{FIMO}.~\cite{liu2023fimochallengeformaldataset}
-\item \textbf{Baldur}.~\cite{first2023baldurwholeproofgenerationrepair}
-\item \textbf{LeanDojo / ReProver}.~\cite{yang2023leandojotheoremprovingretrievalaugmented}
+\item \textbf{GPT-f}.~\cite{DBLP:journals/corr/abs-2009-03393}
+\item \textbf{miniF2F}.~\cite{DBLP:conf/iclr/ZhengHP22}
+\item \textbf{Draft, Sketch, and Prove}.~\cite{DBLP:journals/corr/abs-2210-12283}
+\item \textbf{ProofNet}.~\cite{DBLP:journals/corr/abs-2302-12433}
+\item \textbf{FIMO}.~\cite{DBLP:journals/corr/abs-2309-04295}
+\item \textbf{Baldur}.~\cite{DBLP:conf/sigsoft/FirstRRB23}
+\item \textbf{LeanDojo / ReProver}.~\cite{DBLP:journals/corr/abs-2306-15626}
 \item \textbf{COPRA}.~\cite{copra_2024}
-\item \textbf{DeepSeek-Prover}.~\cite{xin2024deepseekproveradvancingtheoremproving}
-\item \textbf{SubgoalXL}.~\cite{zhao2024subgoalxlsubgoalbasedexpertlearning}
-\item \textbf{LEGO-Prover}.~\cite{wang2023legoproverneuraltheoremproving}
+\item \textbf{DeepSeek-Prover}.~\cite{DBLP:journals/corr/abs-2405-14333}
+\item \textbf{SubgoalXL}.~\cite{DBLP:journals/corr/abs-2408-11172}
+\item \textbf{LEGO-Prover}.~\cite{DBLP:journals/corr/abs-2310-00656}
 \item \textbf{Lean Copilot}.~\cite{lean_copilot_2025}
 \item \textbf{APOLLO}.~\cite{apollo_2025}
-\item \textbf{HybridProver}.~\cite{hu2025hybridproveraugmentingtheoremproving}
+\item \textbf{HybridProver}.~\cite{DBLP:journals/corr/abs-2505-15740}
 \item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}.~\cite{xu2025minimalistprooflanguageneural}
 \item \textbf{Agentic Program Verification / AutoRocq}.~\cite{tu2026agenticverificationsoftwaresystems}
-\item \textbf{AutoReal on seL4}.~\cite{zhang2026realworldindustrialscaleverificationllmdriven}
+\item \textbf{AutoReal on seL4}.~\cite{DBLP:journals/corr/abs-2602-08384}
 \item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}.~\cite{hou2026vibecodingllmpoweredtheorem}
-\item \textbf{LeanNavigator}.~\cite{yin2025generatingmillionsleantheorems}
+\item \textbf{LeanNavigator}.~\cite{DBLP:journals/corr/abs-2503-04772}
 \end{itemize}
 
 \subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:papers-research-temp}
 \begin{itemize}
-\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}.~\cite{murphy2024guidingllmtemporallogic}
+\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}.~\cite{DBLP:journals/corr/abs-2406-07400}
 \item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
-\item \textbf{Towards Language Model Guided TLA+ Proof Automation}.~\cite{zhou2026languagemodelguidedtla}
-\item \textbf{AssertionBench}.~\cite{pulavarthi2025assertionbenchbenchmarkevaluatelargelanguage}
-\item \textbf{FVEval}.~\cite{kang2024fvevalunderstandinglanguagemodel}
-\item \textbf{STELLAR}.~\cite{rajabi2026stellarstructureguidedllmassertion}
+\item \textbf{Towards Language Model Guided TLA+ Proof Automation}.~\cite{DBLP:journals/corr/abs-2512-09758}
+\item \textbf{AssertionBench}.~\cite{DBLP:conf/naacl/PulavarthiNDP25}
+\item \textbf{FVEval}.~\cite{DBLP:journals/corr/abs-2410-23299}
+\item \textbf{STELLAR}.~\cite{DBLP:journals/corr/abs-2601-19903}
 \end{itemize}
 
 \subsubsection{Benchmarks and datasets}\label{subsec:papers-research-bench}
 \begin{itemize}
-\item \textbf{PUTNAMBENCH}.~\cite{tsoukalas2024putnambenchevaluatingneuraltheoremprovers}
-\item \textbf{FormalMATH}.~\cite{yu2025formalmathbenchmarkingformalmathematical}
-\item \textbf{CLEVER}.~\cite{thakur2025clevercuratedbenchmarkformally}
-\item \textbf{VERINA}.~\cite{ye2026verinabenchmarkingverifiablecode}
-\item \textbf{A benchmark for vericoding}.~\cite{bursuc2025benchmarkvericodingformallyverified}
-\item \textbf{AlgoVeri}.~\cite{zhao2026algoverialignedbenchmarkverified}
-\item \textbf{CASP}.~\cite{hertzberg2025caspevaluationdatasetformal}
-\item \textbf{DafnyCOMP}.~\cite{xu2025localsuccessdoescompose}
-\item \textbf{VeriSoftBench}.~\cite{xin2026verisoftbenchrepositoryscaleformalverification}
+\item \textbf{PUTNAMBENCH}.~\cite{DBLP:conf/nips/TsoukalasLJXDJT24}
+\item \textbf{FormalMATH}.~\cite{DBLP:journals/corr/abs-2505-02735}
+\item \textbf{CLEVER}.~\cite{DBLP:journals/corr/abs-2505-13938}
+\item \textbf{VERINA}.~\cite{DBLP:journals/corr/abs-2505-23135}
+\item \textbf{A benchmark for vericoding}.~\cite{DBLP:journals/corr/abs-2509-22908}
+\item \textbf{AlgoVeri}.~\cite{DBLP:journals/corr/abs-2602-09464}
+\item \textbf{CASP}.~\cite{DBLP:conf/vecos/HertzbergSKL25}
+\item \textbf{DafnyCOMP}.~\cite{DBLP:journals/corr/abs-2509-23061}
+\item \textbf{VeriSoftBench}.~\cite{DBLP:journals/corr/abs-2602-18307}
 \end{itemize}
 
 \subsection{Industry and joint industry--academic papers}
@@ -238,9 +238,9 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 \subsubsection{Verified systems code}
 
 \begin{itemize}
-\item \textbf{AutoVerus}.~\cite{yang2025autoverusautomatedproofgeneration}
-\item \textbf{VeruSAGE}.~\cite{yang2025verusagestudyagentbasedverification}
-\item \textbf{VeriStruct}.~\cite{sun2026veristructaiassistedautomatedverification}
+\item \textbf{AutoVerus}.~\cite{DBLP:journals/pacmpl/YangLMYCGHLLL0Z25}
+\item \textbf{VeruSAGE}.~\cite{DBLP:journals/corr/abs-2512-18436}
+\item \textbf{VeriStruct}.~\cite{DBLP:journals/corr/abs-2510-25015}
 \end{itemize}
 
 \subsubsection{Formal mathematical reasoning}
@@ -253,7 +253,7 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \begin{itemize}
 \item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}.~\cite{safety_critical_automotive_2025}
-\item \textbf{AssertLLM}.~\cite{yan2024assertllmgeneratinghardwareverification}
+\item \textbf{AssertLLM}.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
 \end{itemize}
 
 \appendix
