@@ -1,0 +1,279 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[backend=biber,style=numeric,sorting=none,url=true,doi=false,isbn=false,eprint=false]{biblatex}
+\addbibresource{00-surveys-foundations.bib}
+\addbibresource{01-specification-and-requirements.bib}
+\addbibresource{02-verified-code-generation-and-software-verification.bib}
+\addbibresource{03-ai-assisted-mechanised-proving.bib}
+\addbibresource{04-tla-model-checking-and-hardware-fv.bib}
+\addbibresource{05-benchmarks-and-datasets.bib}
+\addbibresource{06-industry-and-joint-projects.bib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={LLMs and Formal Methods: Organised report and BibTeX reading lists}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist[itemize]{leftmargin=1.35em,itemsep=0.35em,topsep=0.4em}
+\renewcommand{\arraystretch}{1.15}
+
+\title{\textbf{LLMs and Formal Methods}\\[0.3em]\large Organised report with companion BibTeX reading lists}
+\author{}
+\date{1 April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\small
+This document converts the earlier literature scan into a simple \LaTeX{} report.
+Every entry cited in the body appears in the bibliography with a clickable URL, and the same material is also split into themed \texttt{.bib} files for reuse.
+\end{center}
+
+\tableofcontents
+
+\section{Scope and structure}
+This pack is organised around the two-way intersection between large language models and formal methods:
+\emph{formal methods for constraining or checking AI-assisted software development}, and
+\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The report is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with separate research and industry subsections, and with an additional classification by technical area. Representative surveys and roadmaps that frame the field include the main autoformalisation survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{survey_autoformalization_era_llms_2025,survey_formalising_software_requirements_llms_2025,survey_deep_learning_theorem_proving_2024,roadmap_llms_formal_methods_agents_2024,formal_mathematical_reasoning_frontier_2024,roadmap_requirements_engineering_llms_2025}
+
+\section{Taxonomy}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.43\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+\toprule
+\textbf{Area} & \textbf{What sits here} & \textbf{Where in this report} \\
+\midrule
+\endhead
+Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. & \hyperref[subsec:projects-research-spec]{Projects} and \hyperref[subsec:papers-research-spec]{papers} \\
+Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. & \hyperref[subsec:projects-research-vcode]{Projects} and \hyperref[subsec:papers-research-vcode]{papers} \\
+AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. & \hyperref[subsec:projects-research-mech]{Projects} and \hyperref[subsec:papers-research-mech]{papers} \\
+Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. & \hyperref[subsec:projects-research-temp]{Projects} and \hyperref[subsec:papers-research-temp]{papers} \\
+Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, and hardware FV. & \hyperref[subsec:papers-research-bench]{Papers} \\
+\bottomrule
+\end{longtable}
+
+\section{Projects}\label{sec:projects}
+
+\subsection{Research-led projects}
+
+\subsubsection{Specification languages and requirements}\label{subsec:projects-research-spec}
+\begin{itemize}
+\item \textbf{VERIFAI}. Early project on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
+\item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{nl2spec_2023}
+\item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{nl2tl_2023}
+\item \textbf{TLAiBench}. A benchmark repository for TLA+ specification tasks.~\cite{tlai_bench_project}
+\item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{doc2spec_2026}
+\item \textbf{Trustworthy formal natural-language specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{trustworthy_formal_nl_specs_2023}
+\end{itemize}
+
+\subsubsection{Verified code generation and proof synthesis for code}\label{subsec:projects-research-vcode}
+\begin{itemize}
+\item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants and proof-oriented annotations.~\cite{dafny_annotator_2024}
+\item \textbf{AlphaVerus}. Self-improving verified code generation for Verus/Rust.~\cite{alphaverus_project}
+\item \textbf{RAG-Verus}. Repository-level proof synthesis for Verus with retrieval augmentation and repository context.~\cite{ragverus_2025}
+\item \textbf{VeCoGen}. Formally verified C generation using LLMs plus a verifier-guided refinement loop.~\cite{vecogen_2025}
+\item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{verisoftbench_2026}
+\end{itemize}
+
+\subsubsection{AI-assisted mechanised proving}\label{subsec:projects-research-mech}
+\begin{itemize}
+\item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{leandojo_2023}
+\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search and premise selection.~\cite{lean_copilot_2025}
+\item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{deepseek_prover_2024,deepseek_prover_v15_repo}
+\item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{apollo_2025}
+\item \textbf{AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback; introduced in Agentic Program Verification.~\cite{agentic_program_verification_2025}
+\item \textbf{Isabellm}. A lightweight Isabelle/HOL prover with both a paper and an open implementation.~\cite{isabellm_2026,llm_isabelle_repo}
+\item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{leannavigator_2025}
+\end{itemize}
+
+\subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:projects-research-temp}
+\begin{itemize}
+\item \textbf{Retrieval-augmented TLAPS proof generation}. LLM-assisted proof generation for TLAPS using retrieved verified proof fragments.~\cite{retrieval_augmented_tlaps_2025}
+\item \textbf{Language-model-guided TLA+ proof automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{tla_proof_automation_2025}
+\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{assertllm_2024}
+\item \textbf{FVEval}. A benchmark and evaluation framework for hardware formal-verification tasks.~\cite{fveval_2024}
+\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{stellar_2026}
+\end{itemize}
+
+\subsection{Industry and joint industry--academic projects}
+\subsubsection{Specification and intent formalisation}
+
+\begin{itemize}
+\item \textbf{Microsoft intent formalisation agenda}. Positioning user-intent formalisation as a core reliability problem for AI-assisted coding.~\cite{intent_formalization_grand_challenge_project}
+\item \textbf{nl2postcond}. Microsoft-led work on turning programmer intent into checkable postconditions.~\cite{nl2postcond_2024}
+\end{itemize}
+
+\subsubsection{Verified systems code}
+
+\begin{itemize}
+\item \textbf{Microsoft verus-proof-synthesis}. Umbrella repository for Microsoft's Verus verification automation stack.~\cite{microsoft_verus_proof_synthesis_repo}
+\item \textbf{AutoVerus}. Automated proof generation for Rust/Verus.~\cite{autoverus_2025}
+\item \textbf{VeruSAGE}. Agent-based verification for repository-scale Rust systems.~\cite{verusage_2025}
+\item \textbf{VeriStruct}. Planner-based verification of Verus data-structure modules.~\cite{veristruct_2026}
+\end{itemize}
+
+\subsubsection{Formal mathematics and conjectures}
+
+\begin{itemize}
+\item \textbf{AlphaProof programme}. Google DeepMind's public project framing around reinforcement learning for formal mathematical reasoning.~\cite{alphaproof_blog_2024}
+\item \textbf{formal-conjectures}. Repository of Lean-formalised conjectures intended to support formal reasoning research.~\cite{formal_conjectures_repo}
+\end{itemize}
+
+\subsubsection{Safety-critical and hardware application}
+
+\begin{itemize}
+\item \textbf{Automotive C generation with formal verification}. Joint industry-academic evaluation on safety-critical automotive software.~\cite{safety_critical_automotive_2025}
+\item \textbf{AssertLLM}. Joint academic-industry hardware FV workflow.~\cite{assertllm_2024}
+\end{itemize}
+
+\section{Papers}\label{sec:papers}
+
+\subsection{Research papers}
+
+\subsubsection{Surveys and roadmaps}
+\begin{itemize}
+\item \textbf{Autoformalisation survey}.~\cite{survey_autoformalization_era_llms_2025}
+\item \textbf{Survey on LLMs for software-requirement formalisation}.~\cite{survey_formalising_software_requirements_llms_2025}
+\item \textbf{Survey on deep learning for theorem proving}.~\cite{survey_deep_learning_theorem_proving_2024}
+\item \textbf{Roadmap on LLMs and formal methods for trustworthy agents}.~\cite{roadmap_llms_formal_methods_agents_2024}
+\item \textbf{Formal mathematical reasoning as an AI frontier}.~\cite{formal_mathematical_reasoning_frontier_2024}
+\item \textbf{Two-way roadmap between requirements engineering and LLMs}.~\cite{roadmap_requirements_engineering_llms_2025}
+\end{itemize}
+
+\subsubsection{Specification generation and requirements formalisation}\label{subsec:papers-research-spec}
+\begin{itemize}
+\item \textbf{Formal Specifications from Natural Language}.~\cite{formal_specifications_from_natural_language_2022}
+\item \textbf{Autoformalization with Large Language Models}.~\cite{autoformalization_with_llms_2022}
+\item \textbf{nl2spec}.~\cite{nl2spec_2023}
+\item \textbf{NL2TL}.~\cite{nl2tl_2023}
+\item \textbf{SpecGen}.~\cite{specgen_2024}
+\item \textbf{Specify What?}.~\cite{specify_what_2024}
+\item \textbf{Seeking Specifications}.~\cite{seeking_specifications_2025}
+\item \textbf{Doc2Spec}.~\cite{doc2spec_2026}
+\item \textbf{Trustworthy Formal Natural Language Specifications}.~\cite{trustworthy_formal_nl_specs_2023}
+\item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}.~\cite{specverify_experimental_study_2025}
+\end{itemize}
+
+\subsubsection{Verified code generation and proof synthesis for code}\label{subsec:papers-research-vcode}
+\begin{itemize}
+\item \textbf{DafnyBench}.~\cite{dafnybench_2024}
+\item \textbf{DafnySynth / dafny-annotator}.~\cite{dafny_annotator_2024}
+\item \textbf{Laurel}.~\cite{laurel_2024}
+\item \textbf{Verification with Ada/SPARK}.~\cite{spark_llm_verification_2025}
+\item \textbf{LLM code generation with formal specifications and reactive synthesis}.~\cite{llm_codegen_formal_spec_reactive_synthesis_2024}
+\item \textbf{VeCoGen}.~\cite{vecogen_2025}
+\item \textbf{Automatic generation of specification and verification annotations using LLMs and test oracles}.~\cite{auto_annotations_test_oracles_2026}
+\item \textbf{Evaluating LLM-generated ACSL annotations}.~\cite{evaluating_llm_generated_acsl_2026}
+\item \textbf{RAG-Verus}.~\cite{ragverus_2025}
+\end{itemize}
+
+\subsubsection{AI-assisted mechanised proving}\label{subsec:papers-research-mech}
+\begin{itemize}
+\item \textbf{GPT-f}.~\cite{gptf_2020}
+\item \textbf{miniF2F}.~\cite{minif2f_2021}
+\item \textbf{Draft, Sketch, and Prove}.~\cite{draft_sketch_prove_2022}
+\item \textbf{ProofNet}.~\cite{proofnet_2023}
+\item \textbf{FIMO}.~\cite{fimo_2023}
+\item \textbf{Baldur}.~\cite{baldur_2023}
+\item \textbf{LeanDojo / ReProver}.~\cite{leandojo_2023}
+\item \textbf{COPRA}.~\cite{copra_2024}
+\item \textbf{DeepSeek-Prover}.~\cite{deepseek_prover_2024}
+\item \textbf{SubgoalXL}.~\cite{subgoalxl_2024}
+\item \textbf{LEGO-Prover}.~\cite{lego_prover_2023}
+\item \textbf{Lean Copilot}.~\cite{lean_copilot_2025}
+\item \textbf{APOLLO}.~\cite{apollo_2025}
+\item \textbf{HybridProver}.~\cite{hybridprover_2025}
+\item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}.~\cite{minimalist_proof_language_2025}
+\item \textbf{Agentic Program Verification / AutoRocq}.~\cite{agentic_program_verification_2025}
+\item \textbf{AutoReal on seL4}.~\cite{autoreal_sel4_2026}
+\item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}.~\cite{isabellm_2026}
+\item \textbf{LeanNavigator}.~\cite{leannavigator_2025}
+\end{itemize}
+
+\subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:papers-research-temp}
+\begin{itemize}
+\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}.~\cite{guiding_temporal_logic_generation_2024}
+\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}.~\cite{retrieval_augmented_tlaps_2025}
+\item \textbf{Towards Language Model Guided TLA+ Proof Automation}.~\cite{tla_proof_automation_2025}
+\item \textbf{AssertionBench}.~\cite{assertionbench_2024}
+\item \textbf{FVEval}.~\cite{fveval_2024}
+\item \textbf{STELLAR}.~\cite{stellar_2026}
+\end{itemize}
+
+\subsubsection{Benchmarks and datasets}\label{subsec:papers-research-bench}
+\begin{itemize}
+\item \textbf{PUTNAMBENCH}.~\cite{putnambench_2024}
+\item \textbf{FormalMATH}.~\cite{formalmath_2025}
+\item \textbf{CLEVER}.~\cite{clever_2025}
+\item \textbf{VERINA}.~\cite{verina_2025}
+\item \textbf{A benchmark for vericoding}.~\cite{vericoding_benchmark_2025}
+\item \textbf{AlgoVeri}.~\cite{algoveri_2026}
+\item \textbf{CASP}.~\cite{casp_2025}
+\item \textbf{DafnyCOMP}.~\cite{dafnycomp_2025}
+\item \textbf{VeriSoftBench}.~\cite{verisoftbench_2026}
+\end{itemize}
+
+\subsection{Industry and joint industry--academic papers}
+\subsubsection{Specification and intent formalisation}
+
+\begin{itemize}
+\item \textbf{Can Large Language Models Transform Natural Language Intent into Formal Method Postconditions?}.~\cite{nl2postcond_2024}
+\item \textbf{Evaluating LLM-driven User-Intent Formalization for Verification-Aware Languages}.~\cite{verification_aware_intent_formalization_2024}
+\end{itemize}
+
+\subsubsection{Verified systems code}
+
+\begin{itemize}
+\item \textbf{AutoVerus}.~\cite{autoverus_2025}
+\item \textbf{VeruSAGE}.~\cite{verusage_2025}
+\item \textbf{VeriStruct}.~\cite{veristruct_2026}
+\end{itemize}
+
+\subsubsection{Formal mathematical reasoning}
+
+\begin{itemize}
+\item \textbf{Olympiad-level formal mathematical reasoning with reinforcement learning (AlphaProof)}.~\cite{alphaproof_nature_2025}
+\end{itemize}
+
+\subsubsection{Applications}
+
+\begin{itemize}
+\item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}.~\cite{safety_critical_automotive_2025}
+\item \textbf{AssertLLM}.~\cite{assertllm_2024}
+\end{itemize}
+
+\appendix
+
+\section{Companion BibTeX files}
+The reading lists are split into themed \texttt{.bib} files so that they can be imported selectively into an existing document. The combined file contains every entry in one place.
+
+\begin{itemize}
+\item \path{00-surveys-foundations.bib}: Surveys, roadmaps, and framing papers.
+\item \path{01-specification-and-requirements.bib}: Natural-language to specification, intent formalisation, and requirements engineering.
+\item \path{02-verified-code-generation-and-software-verification.bib}: Verifier-in-the-loop code generation, annotation synthesis, and software-verification systems.
+\item \path{03-ai-assisted-mechanised-proving.bib}: Theorem proving, proof repair, Lean/Isabelle/Rocq systems, and prover infrastructure.
+\item \path{04-tla-model-checking-and-hardware-fv.bib}: Temporal logic, TLA+, TLAPS, hardware assertions, and formal-verification benchmarks.
+\item \path{05-benchmarks-and-datasets.bib}: Cross-cutting benchmarks and datasets.
+\item \path{06-industry-and-joint-projects.bib}: Industry-led or joint industry-academic systems and case studies.
+\item \path{llm-formal-methods-all.bib}: Combined bibliography with every entry in one file.
+\end{itemize}
+
+\section{Notes on usage}
+The bibliography is intentionally broad. A few named systems appear in both the projects and papers sections; they are cited from a single canonical source where possible, and from a project page or repository when that is the most useful entry point. Because the report is meant as a reusable reading pack, the bibliography keeps URLs visible rather than suppressing them.
+
+\printbibliography[heading=bibintoc,title={Complete bibliography}]
+\end{document}
