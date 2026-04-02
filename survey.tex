@@ -25,44 +25,43 @@
   linkcolor=blue!55!black,
   citecolor=blue!55!black,
   urlcolor=blue!55!black,
-  pdftitle={LLMs and Formal Methods: Organised report and BibTeX reading lists}
+  pdftitle={LLMs and Formal Methods: A survey}
 }
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.55em}
 \setlist[itemize]{leftmargin=1.35em,itemsep=0.35em,topsep=0.4em}
 \renewcommand{\arraystretch}{1.15}
 
-\title{\textbf{LLMs and Formal Methods}\\[0.3em]\large Organised report with companion BibTeX reading lists}
+\title{\textbf{LLMs and Formal Methods: A survey}}
 \author{}
 \date{1 April 2026}
 
 \begin{document}
 \maketitle
 
-\begin{center}
-\small
-This document converts the earlier literature scan into a simple \LaTeX{} report.
-Every entry cited in the body appears in the bibliography with a clickable URL, and the same material is also split into themed \texttt{.bib} files for reuse.
-\end{center}
-
 \tableofcontents
 
 \section{Scope and structure}
-This pack is organised around the two-way intersection between large language models and formal methods:
+This survey is organised around the two-way intersection between large language models and formal methods:
 \emph{formal methods for constraining or checking AI-assisted software development}, and
-\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The report is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with separate research and industry subsections, and with an additional classification by technical area. Representative surveys and roadmaps that frame the field include the main autoformalisation survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
+\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The
+survey is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with
+separate research and industry subsections, and with an additional classification by technical
+area. Representative surveys and roadmaps that frame the field include the main autoformalisation
+survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on
+trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
 
 \section{Taxonomy}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.43\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}p{0.60\textwidth}}
 \toprule
-\textbf{Area} & \textbf{What sits here} & \textbf{Where in this report} \\
+\textbf{Area} & \textbf{What sits here} \\
 \midrule
 \endhead
-Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. & \hyperref[subsec:projects-research-spec]{Projects} and \hyperref[subsec:papers-research-spec]{papers} \\
-Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. & \hyperref[subsec:projects-research-vcode]{Projects} and \hyperref[subsec:papers-research-vcode]{papers} \\
-AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. & \hyperref[subsec:projects-research-mech]{Projects} and \hyperref[subsec:papers-research-mech]{papers} \\
-Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. & \hyperref[subsec:projects-research-temp]{Projects} and \hyperref[subsec:papers-research-temp]{papers} \\
-Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, and hardware FV. & \hyperref[subsec:papers-research-bench]{Papers} \\
+Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. \\
+Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. \\
+AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. \\
+Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. \\
+Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, and hardware FV. \\
 \bottomrule
 \end{longtable}
 
@@ -130,6 +129,7 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \begin{itemize}
 \item \textbf{AlphaProof programme}. Google DeepMind's public project framing around reinforcement learning for formal mathematical reasoning.~\cite{alphaproof_blog_2024}
+\item \textbf{Harmonic / Aristotle}. Industry effort on olympiad-level automated theorem proving and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2510-01346}
 \item \textbf{formal-conjectures}. Repository of Lean-formalised conjectures intended to support formal reasoning research.~\cite{formal_conjectures_repo}
 \end{itemize}
 
@@ -247,6 +247,7 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 
 \begin{itemize}
 \item \textbf{Olympiad-level formal mathematical reasoning with reinforcement learning (AlphaProof)}.~\cite{alphaproof_nature_2025}
+\item \textbf{Aristotle: IMO-level Automated Theorem Proving} (Harmonic).~\cite{DBLP:journals/corr/abs-2510-01346}
 \end{itemize}
 
 \subsubsection{Applications}
@@ -259,7 +260,8 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 \appendix
 
 \section{Companion BibTeX files}
-The reading lists are split into themed \texttt{.bib} files so that they can be imported selectively into an existing document. The combined file contains every entry in one place.
+The bibliography is split into themed \texttt{.bib} files so that entries can be imported
+selectively into another document. The combined file contains every entry in one place.
 
 \begin{itemize}
 \item \path{00-surveys-foundations.bib}: Surveys, roadmaps, and framing papers.
@@ -272,8 +274,6 @@ The reading lists are split into themed \texttt{.bib} files so that they can be 
 \item \path{llm-formal-methods-all.bib}: Combined bibliography with every entry in one file.
 \end{itemize}
 
-\section{Notes on usage}
-The bibliography is intentionally broad. A few named systems appear in both the projects and papers sections; they are cited from a single canonical source where possible, and from a project page or repository when that is the most useful entry point. Because the report is meant as a reusable reading pack, the bibliography keeps URLs visible rather than suppressing them.
 
 \printbibliography[heading=bibintoc,title={Complete bibliography}]
 \end{document}
