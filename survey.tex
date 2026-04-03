@@ -44,15 +44,16 @@
 \section{Scope and structure}
 This survey is organised around the two-way intersection between large language models and formal methods:
 \emph{formal methods for constraining or checking AI-assisted software development}, and
-\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The
-survey is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with
-separate research and industry subsections, and with an additional classification by technical
-area. The main emphasis is on systems with a direct formal-methods component, but the survey also
-notes adjacent specification and programming artefacts when they illuminate likely interfaces
-between natural-language intent, intermediate specifications, AI-native implementation languages,
-and verifier-oriented workflows. Representative surveys and roadmaps that frame the field include
-the main autoformalisation survey, the software-requirements survey, the theorem-proving survey,
-and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
+\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. After
+a short section of surveys and roadmaps, the material is organised directly by technical category,
+mixing papers, systems, benchmarks, and industry artefacts where that gives the clearest picture
+of the space. The main emphasis is on systems with a direct formal-methods component, but the
+survey also notes adjacent specification and programming artefacts when they illuminate likely
+interfaces between natural-language intent, intermediate specifications, AI-native implementation
+languages, and verifier-oriented workflows. Representative surveys and roadmaps that frame the
+field include the main autoformalisation survey, the software-requirements survey, the
+theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical
+reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
 
 \section{Taxonomy}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}p{0.60\textwidth}}
@@ -60,103 +61,17 @@ and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.
 \textbf{Area} & \textbf{What sits here} \\
 \midrule
 \endhead
+Surveys and roadmaps & High-level surveys, position papers, and roadmaps that frame the field and its major research directions. \\
 Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. \\
 Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. \\
 AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. \\
 Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. \\
-Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, and hardware FV. \\
+Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, TLA+, and hardware FV. \\
 Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. \\
 \bottomrule
 \end{longtable}
 
-\section{Projects}\label{sec:projects}
-
-\subsection{Research-led projects}
-
-\subsubsection{Specification languages and requirements}\label{subsec:projects-research-spec}
-\begin{itemize}
-\item \textbf{VERIFAI}. Early project on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
-\item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
-\item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{DBLP:conf/emnlp/ChenGZF23}
-\item \textbf{TLAiBench}. A benchmark repository for TLA+ specification tasks.~\cite{tlai_bench_project}
-\item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{xia2026doc2specsynthesizingformalprogramming}
-\item \textbf{Trustworthy formal natural-language specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{gordon2023trustworthyformalnaturallanguage}
-\end{itemize}
-
-\subsubsection{Verified code generation and proof synthesis for code}\label{subsec:projects-research-vcode}
-\begin{itemize}
-\item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants and proof-oriented annotations.~\cite{DBLP:journals/corr/abs-2411-15143}
-\item \textbf{AlphaVerus}. Self-improving verified code generation for Verus/Rust.~\cite{alphaverus_project}
-\item \textbf{RAG-Verus}. Repository-level proof synthesis for Verus with retrieval augmentation and repository context.~\cite{DBLP:journals/corr/abs-2502-05344}
-\item \textbf{VeCoGen}. Formally verified C generation using LLMs plus a verifier-guided refinement loop.~\cite{DBLP:conf/icse-formalise/SevenhuijsenEN25}
-\item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{DBLP:journals/corr/abs-2602-18307}
-\end{itemize}
-
-\subsubsection{AI-assisted mechanised proving}\label{subsec:projects-research-mech}
-\begin{itemize}
-\item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{DBLP:journals/corr/abs-2306-15626}
-\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search and premise selection.~\cite{lean_copilot_2025}
-\item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{DBLP:journals/corr/abs-2405-14333,deepseek_prover_v15_repo}
-\item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{apollo_2025}
-\item \textbf{AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback; introduced in Agentic Program Verification.~\cite{tu2026agenticverificationsoftwaresystems}
-\item \textbf{Isabellm}. A lightweight Isabelle/HOL prover with both a paper and an open implementation.~\cite{hou2026vibecodingllmpoweredtheorem,llm_isabelle_repo}
-\item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{DBLP:journals/corr/abs-2503-04772}
-\end{itemize}
-
-\subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:projects-research-temp}
-\begin{itemize}
-\item \textbf{Retrieval-augmented TLAPS proof generation}. LLM-assisted proof generation for TLAPS using retrieved verified proof fragments.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
-\item \textbf{Language-model-guided TLA+ proof automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{DBLP:journals/corr/abs-2512-09758}
-\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
-\item \textbf{FVEval}. A benchmark and evaluation framework for hardware formal-verification tasks.~\cite{DBLP:journals/corr/abs-2410-23299}
-\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
-\end{itemize}
-
-\subsection{Industry and joint industry--academic projects}
-\subsubsection{Specification and intent formalisation}
-
-\begin{itemize}
-\item \textbf{Microsoft intent formalisation agenda}. Positioning user-intent formalisation as a core reliability problem for AI-assisted coding.~\cite{intent_formalization_grand_challenge_project}
-\item \textbf{nl2postcond}. Microsoft-led work on turning programmer intent into checkable postconditions.~\cite{endres2024largelanguagemodelstransform}
-\end{itemize}
-
-\subsubsection{Verified systems code}
-
-\begin{itemize}
-\item \textbf{Microsoft verus-proof-synthesis}. Umbrella repository for Microsoft's Verus verification automation stack.~\cite{microsoft_verus_proof_synthesis_repo}
-\item \textbf{AutoVerus}. Automated proof generation for Rust/Verus.~\cite{DBLP:journals/pacmpl/YangLMYCGHLLL0Z25}
-\item \textbf{VeruSAGE}. Agent-based verification for repository-scale Rust systems.~\cite{DBLP:journals/corr/abs-2512-18436}
-\item \textbf{VeriStruct}. Planner-based verification of Verus data-structure modules.~\cite{DBLP:journals/corr/abs-2510-25015}
-\end{itemize}
-
-\subsubsection{Formal mathematics and conjectures}
-
-\begin{itemize}
-\item \textbf{AlphaProof programme}. Google DeepMind's public project framing around reinforcement learning for formal mathematical reasoning.~\cite{alphaproof_blog_2024}
-\item \textbf{Harmonic / Aristotle}. Industry effort on olympiad-level automated theorem proving and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2510-01346}
-\item \textbf{formal-conjectures}. Repository of Lean-formalised conjectures intended to support formal reasoning research.~\cite{formal_conjectures_repo}
-\end{itemize}
-
-\subsubsection{Safety-critical and hardware application}
-
-\begin{itemize}
-\item \textbf{Automotive C generation with formal verification}. Joint industry-academic evaluation on safety-critical automotive software.~\cite{safety_critical_automotive_2025}
-\item \textbf{AssertLLM}. Joint academic-industry hardware FV workflow.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
-\end{itemize}
-
-\subsubsection{Adjacent specification and AI-native coding systems}
-
-\begin{itemize}
-\item \textbf{Mog}. An AI-agent-oriented embedded language designed to be written by LLMs, with an explicit capability model and a compact language specification.~\cite{mog_language_project}
-\item \textbf{CodeSpeak}. A spec-centric programming language and toolchain that generates conventional code from maintained specifications using LLMs.~\cite{codespeak_project}
-\item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
-\end{itemize}
-
-\section{Papers}\label{sec:papers}
-
-\subsection{Research papers}
-
-\subsubsection{Surveys and roadmaps}
+\section{Surveys and roadmaps}
 \begin{itemize}
 \item \textbf{Autoformalisation survey}.~\cite{DBLP:journals/corr/abs-2505-23486}
 \item \textbf{Survey on LLMs for software-requirement formalisation}.~\cite{DBLP:journals/corr/abs-2506-11874}
@@ -166,107 +81,90 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Two-way roadmap between requirements engineering and LLMs}.~\cite{DBLP:journals/infsof/FerrariS25}
 \end{itemize}
 
-\subsubsection{Specification generation and requirements formalisation}\label{subsec:papers-research-spec}
+\section{Specification languages and requirements}
 \begin{itemize}
-\item \textbf{Formal Specifications from Natural Language}.~\cite{DBLP:journals/corr/abs-2206-01962}
-\item \textbf{Autoformalization with Large Language Models}.~\cite{DBLP:journals/corr/abs-2205-12615}
-\item \textbf{nl2spec}.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
-\item \textbf{NL2TL}.~\cite{DBLP:conf/emnlp/ChenGZF23}
-\item \textbf{SpecGen}.~\cite{ma2025specgenautomatedgenerationformal}
-\item \textbf{Specify What?}.~\cite{granberry2024specifywhatenhancingneural}
-\item \textbf{Seeking Specifications}.~\cite{granberry2025seekingspecificationscaseneurosymbolic}
-\item \textbf{Doc2Spec}.~\cite{xia2026doc2specsynthesizingformalprogramming}
-\item \textbf{Trustworthy Formal Natural Language Specifications}.~\cite{gordon2023trustworthyformalnaturallanguage}
-\item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}.~\cite{wang2025supportingsoftwareformalverification}
+\item \textbf{VERIFAI}. Early work on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
+\item \textbf{Formal Specifications from Natural Language}. Direct NL-to-formal-spec framing paper.~\cite{DBLP:journals/corr/abs-2206-01962}
+\item \textbf{Autoformalization with Large Language Models}. Early LLM-based autoformalisation of informal mathematical text.~\cite{DBLP:journals/corr/abs-2205-12615}
+\item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
+\item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{DBLP:conf/emnlp/ChenGZF23}
+\item \textbf{SpecGen}. Automated generation of formal specifications from natural-language requirements.~\cite{ma2025specgenautomatedgenerationformal}
+\item \textbf{Specify What?} and \textbf{Seeking Specifications}. Neuro-symbolic work on deriving and refining specifications from informal descriptions.~\cite{granberry2024specifywhatenhancingneural,granberry2025seekingspecificationscaseneurosymbolic}
+\item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{xia2026doc2specsynthesizingformalprogramming}
+\item \textbf{Trustworthy Formal Natural Language Specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{gordon2023trustworthyformalnaturallanguage}
+\item \textbf{Microsoft intent formalisation agenda}. Industry framing that treats user-intent formalisation as a central reliability problem for AI-assisted coding.~\cite{intent_formalization_grand_challenge_project}
+\item \textbf{nl2postcond} and follow-on evaluation work. Microsoft-led efforts on turning programmer intent into checkable postconditions and evaluating this route for verification-aware languages.~\cite{endres2024largelanguagemodelstransform,lahiri2024evaluatingllmdrivenuserintentformalization}
+\item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}. Broader evidence on where LLM assistance helps in formal-specification and verification workflows.~\cite{wang2025supportingsoftwareformalverification}
 \end{itemize}
 
-\subsubsection{Verified code generation and proof synthesis for code}\label{subsec:papers-research-vcode}
+\section{Verified code generation and proof synthesis for code}
 \begin{itemize}
-\item \textbf{DafnyBench}.~\cite{DBLP:journals/tmlr/LoughridgeSACS025}
-\item \textbf{DafnySynth / dafny-annotator}.~\cite{DBLP:journals/corr/abs-2411-15143}
-\item \textbf{Laurel}.~\cite{DBLP:journals/pacmpl/MugnierGPJY25}
-\item \textbf{Verification with Ada/SPARK}.~\cite{DBLP:conf/icsoft/CramerM25}
-\item \textbf{LLM code generation with formal specifications and reactive synthesis}.~\cite{DBLP:journals/corr/abs-2410-19736}
-\item \textbf{VeCoGen}.~\cite{DBLP:conf/icse-formalise/SevenhuijsenEN25}
-\item \textbf{Automatic generation of specification and verification annotations using LLMs and test oracles}.~\cite{DBLP:journals/corr/abs-2601-12845}
-\item \textbf{Evaluating LLM-generated ACSL annotations}.~\cite{DBLP:journals/corr/abs-2602-13851}
-\item \textbf{RAG-Verus}.~\cite{DBLP:journals/corr/abs-2502-05344}
+\item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants, and proof-oriented annotations.~\cite{DBLP:journals/corr/abs-2411-15143}
+\item \textbf{Laurel}. Uses LLMs to unblock automated verification by synthesising useful proof and specification steps.~\cite{DBLP:journals/pacmpl/MugnierGPJY25}
+\item \textbf{Verification with Ada/SPARK}. Evaluation of LLM-generated code in a SPARK-based verification setting.~\cite{DBLP:conf/icsoft/CramerM25}
+\item \textbf{LLM code generation with formal specifications and reactive synthesis}. Couples code generation with formal specifications and synthesis constraints.~\cite{DBLP:journals/corr/abs-2410-19736}
+\item \textbf{VeCoGen}. Formally verified C generation using LLMs plus a verifier-guided refinement loop.~\cite{DBLP:conf/icse-formalise/SevenhuijsenEN25}
+\item \textbf{Automatic generation of formal specification and verification annotations using LLMs and test oracles}. Annotation-generation workflow for verification tools.~\cite{DBLP:journals/corr/abs-2601-12845}
+\item \textbf{Evaluating LLM-generated ACSL annotations}. Assessment of annotation quality for Frama-C-style verification workflows.~\cite{DBLP:journals/corr/abs-2602-13851}
+\item \textbf{AlphaVerus}. Self-improving verified code generation for Verus/Rust.~\cite{alphaverus_project}
+\item \textbf{RAG-Verus}. Repository-level proof synthesis for Verus with retrieval augmentation and repository context.~\cite{DBLP:journals/corr/abs-2502-05344}
+\item \textbf{Microsoft verus-proof-synthesis}. Umbrella repository for Microsoft's Verus verification automation stack.~\cite{microsoft_verus_proof_synthesis_repo}
+\item \textbf{AutoVerus}. Automated proof generation for Rust/Verus.~\cite{DBLP:journals/pacmpl/YangLMYCGHLLL0Z25}
+\item \textbf{VeruSAGE}. Agent-based verification for repository-scale Rust systems.~\cite{DBLP:journals/corr/abs-2512-18436}
+\item \textbf{VeriStruct}. Planner-based verification of Verus data-structure modules.~\cite{DBLP:journals/corr/abs-2510-25015}
+\item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}. Joint industry-academic evaluation in a safety-critical domain.~\cite{safety_critical_automotive_2025}
 \end{itemize}
 
-\subsubsection{AI-assisted mechanised proving}\label{subsec:papers-research-mech}
+\section{AI-assisted mechanised proving}
 \begin{itemize}
-\item \textbf{GPT-f}.~\cite{DBLP:journals/corr/abs-2009-03393}
-\item \textbf{miniF2F}.~\cite{DBLP:conf/iclr/ZhengHP22}
-\item \textbf{Draft, Sketch, and Prove}.~\cite{DBLP:journals/corr/abs-2210-12283}
-\item \textbf{ProofNet}.~\cite{DBLP:journals/corr/abs-2302-12433}
-\item \textbf{FIMO}.~\cite{DBLP:journals/corr/abs-2309-04295}
-\item \textbf{Baldur}.~\cite{DBLP:conf/sigsoft/FirstRRB23}
-\item \textbf{LeanDojo / ReProver}.~\cite{DBLP:journals/corr/abs-2306-15626}
-\item \textbf{COPRA}.~\cite{copra_2024}
-\item \textbf{DeepSeek-Prover}.~\cite{DBLP:journals/corr/abs-2405-14333}
-\item \textbf{SubgoalXL}.~\cite{DBLP:journals/corr/abs-2408-11172}
-\item \textbf{LEGO-Prover}.~\cite{DBLP:journals/corr/abs-2310-00656}
-\item \textbf{Lean Copilot}.~\cite{lean_copilot_2025}
-\item \textbf{APOLLO}.~\cite{apollo_2025}
-\item \textbf{HybridProver}.~\cite{DBLP:journals/corr/abs-2505-15740}
-\item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}.~\cite{xu2025minimalistprooflanguageneural}
-\item \textbf{Agentic Program Verification / AutoRocq}.~\cite{tu2026agenticverificationsoftwaresystems}
-\item \textbf{AutoReal on seL4}.~\cite{DBLP:journals/corr/abs-2602-08384}
-\item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}.~\cite{hou2026vibecodingllmpoweredtheorem}
-\item \textbf{LeanNavigator}.~\cite{DBLP:journals/corr/abs-2503-04772}
+\item \textbf{GPT-f}. Early neural theorem-proving baseline for proof search guidance.~\cite{DBLP:journals/corr/abs-2009-03393}
+\item \textbf{Draft, Sketch, and Prove}. Guides formal theorem provers using informal proof sketches.~\cite{DBLP:journals/corr/abs-2210-12283}
+\item \textbf{ProofNet}. Autoformalisation and formal proving for undergraduate-level mathematics.~\cite{DBLP:journals/corr/abs-2302-12433}
+\item \textbf{Baldur}. Whole-proof generation and repair with large language models.~\cite{DBLP:conf/sigsoft/FirstRRB23}
+\item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{DBLP:journals/corr/abs-2306-15626}
+\item \textbf{COPRA}. In-context agentic theorem proving for interactive assistants.~\cite{copra_2024}
+\item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{DBLP:journals/corr/abs-2405-14333,deepseek_prover_v15_repo}
+\item \textbf{SubgoalXL}. Subgoal-based expert learning for theorem proving.~\cite{DBLP:journals/corr/abs-2408-11172}
+\item \textbf{LEGO-Prover}. Neural theorem proving with growing libraries.~\cite{DBLP:journals/corr/abs-2310-00656}
+\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search, and premise selection.~\cite{lean_copilot_2025}
+\item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{apollo_2025}
+\item \textbf{HybridProver}. Combines theorem proving with LLM-driven proof synthesis and repair.~\cite{DBLP:journals/corr/abs-2505-15740}
+\item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}. Proof-language design for neural theorem proving over Isabelle/HOL.~\cite{xu2025minimalistprooflanguageneural}
+\item \textbf{Agentic Program Verification / AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback.~\cite{tu2026agenticverificationsoftwaresystems}
+\item \textbf{AutoReal on seL4}. LLM-driven theorem proving in an industrial-scale verification setting.~\cite{DBLP:journals/corr/abs-2602-08384}
+\item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}. Lightweight Isabelle/HOL proving with both a paper and an open implementation.~\cite{hou2026vibecodingllmpoweredtheorem,llm_isabelle_repo}
+\item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{DBLP:journals/corr/abs-2503-04772}
+\item \textbf{AlphaProof programme}. Google DeepMind's formal mathematical reasoning effort, framed publicly through reinforcement learning and formal proof search.~\cite{alphaproof_blog_2024,alphaproof_nature_2025}
+\item \textbf{Harmonic / Aristotle}. Industry effort on olympiad-level automated theorem proving and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2510-01346}
+\item \textbf{formal-conjectures}. Repository of Lean-formalised conjectures intended to support formal reasoning research.~\cite{formal_conjectures_repo}
 \end{itemize}
 
-\subsubsection{Temporal logic, TLA+, model checking, and hardware formal verification}\label{subsec:papers-research-temp}
+\section{Temporal logic, TLA+, model checking, and hardware formal verification}
 \begin{itemize}
-\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}.~\cite{DBLP:journals/corr/abs-2406-07400}
-\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
-\item \textbf{Towards Language Model Guided TLA+ Proof Automation}.~\cite{DBLP:journals/corr/abs-2512-09758}
-\item \textbf{AssertionBench}.~\cite{DBLP:conf/naacl/PulavarthiNDP25}
-\item \textbf{FVEval}.~\cite{DBLP:journals/corr/abs-2410-23299}
-\item \textbf{STELLAR}.~\cite{DBLP:journals/corr/abs-2601-19903}
+\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}. Temporal-logic generation from natural-language inputs with structural guidance.~\cite{DBLP:journals/corr/abs-2406-07400}
+\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}. Proof generation for TLAPS using retrieved verified proof fragments.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
+\item \textbf{Towards Language Model Guided TLA+ Proof Automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{DBLP:journals/corr/abs-2512-09758}
+\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
+\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
 \end{itemize}
 
-\subsubsection{Benchmarks and datasets}\label{subsec:papers-research-bench}
+\section{Benchmarks and datasets}
 \begin{itemize}
-\item \textbf{PUTNAMBENCH}.~\cite{DBLP:conf/nips/TsoukalasLJXDJT24}
-\item \textbf{FormalMATH}.~\cite{DBLP:journals/corr/abs-2505-02735}
-\item \textbf{CLEVER}.~\cite{DBLP:journals/corr/abs-2505-13938}
-\item \textbf{VERINA}.~\cite{DBLP:journals/corr/abs-2505-23135}
-\item \textbf{A benchmark for vericoding}.~\cite{DBLP:journals/corr/abs-2509-22908}
-\item \textbf{AlgoVeri}.~\cite{DBLP:journals/corr/abs-2602-09464}
-\item \textbf{CASP}.~\cite{DBLP:conf/vecos/HertzbergSKL25}
-\item \textbf{DafnyCOMP}.~\cite{DBLP:journals/corr/abs-2509-23061}
-\item \textbf{VeriSoftBench}.~\cite{DBLP:journals/corr/abs-2602-18307}
+\item \textbf{miniF2F}, \textbf{PUTNAMBENCH}, and \textbf{FormalMATH}. Benchmarks for formal mathematical reasoning and theorem proving across systems and domains.~\cite{DBLP:conf/iclr/ZhengHP22,DBLP:conf/nips/TsoukalasLJXDJT24,DBLP:journals/corr/abs-2505-02735}
+\item \textbf{FIMO}. Challenge dataset for automated theorem proving.~\cite{DBLP:journals/corr/abs-2309-04295}
+\item \textbf{CLEVER} and \textbf{VERINA}. Benchmarks targeting verifier-in-the-loop code generation and proof-oriented programming tasks.~\cite{DBLP:journals/corr/abs-2505-13938,DBLP:journals/corr/abs-2505-23135}
+\item \textbf{A benchmark for vericoding}, \textbf{AlgoVeri}, and \textbf{CASP}. Evaluation sets for formally verified program synthesis and code-level proof generation.~\cite{DBLP:journals/corr/abs-2509-22908,DBLP:journals/corr/abs-2602-09464,DBLP:conf/vecos/HertzbergSKL25}
+\item \textbf{DafnyBench} and \textbf{DafnyCOMP}. Benchmarks and competitions for LLM-assisted Dafny verification workflows.~\cite{DBLP:journals/tmlr/LoughridgeSACS025,DBLP:journals/corr/abs-2509-23061}
+\item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{DBLP:journals/corr/abs-2602-18307}
+\item \textbf{TLAiBench}. Benchmark repository for TLA+ specification tasks.~\cite{tlai_bench_project}
+\item \textbf{AssertionBench} and \textbf{FVEval}. Benchmarks for hardware assertion generation and hardware formal-verification evaluation.~\cite{DBLP:conf/naacl/PulavarthiNDP25,DBLP:journals/corr/abs-2410-23299}
 \end{itemize}
 
-\subsection{Industry and joint industry--academic papers}
-\subsubsection{Specification and intent formalisation}
-
+\section{Adjacent specification and AI-native coding systems}
 \begin{itemize}
-\item \textbf{Can Large Language Models Transform Natural Language Intent into Formal Method Postconditions?}.~\cite{endres2024largelanguagemodelstransform}
-\item \textbf{Evaluating LLM-driven User-Intent Formalization for Verification-Aware Languages}.~\cite{lahiri2024evaluatingllmdrivenuserintentformalization}
-\end{itemize}
-
-\subsubsection{Verified systems code}
-
-\begin{itemize}
-\item \textbf{AutoVerus}.~\cite{DBLP:journals/pacmpl/YangLMYCGHLLL0Z25}
-\item \textbf{VeruSAGE}.~\cite{DBLP:journals/corr/abs-2512-18436}
-\item \textbf{VeriStruct}.~\cite{DBLP:journals/corr/abs-2510-25015}
-\end{itemize}
-
-\subsubsection{Formal mathematical reasoning}
-
-\begin{itemize}
-\item \textbf{Olympiad-level formal mathematical reasoning with reinforcement learning (AlphaProof)}.~\cite{alphaproof_nature_2025}
-\item \textbf{Aristotle: IMO-level Automated Theorem Proving} (Harmonic).~\cite{DBLP:journals/corr/abs-2510-01346}
-\end{itemize}
-
-\subsubsection{Applications}
-
-\begin{itemize}
-\item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}.~\cite{safety_critical_automotive_2025}
-\item \textbf{AssertLLM}.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
+\item \textbf{Mog}. An AI-agent-oriented embedded language designed to be written by LLMs, with an explicit capability model and a compact language specification.~\cite{mog_language_project}
+\item \textbf{CodeSpeak}. A spec-centric programming language and toolchain that generates conventional code from maintained specifications using LLMs.~\cite{codespeak_project}
+\item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
 \end{itemize}
 
 \appendix
