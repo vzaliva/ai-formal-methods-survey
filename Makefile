@@ -9,6 +9,7 @@
 PDFVIEWER=evince
 
 DOCNAME=survey
+LOCALDOC=$(DOCNAME)-local
 
 BIBS=	survey.bib
 
@@ -19,7 +20,7 @@ SRC=	$(DOCNAME).tex \
 # 3-rd party files I am unlikely to modify
 LIBS=
 
-all: $(DOCNAME).pdf
+all: $(DOCNAME).pdf papers/$(DOCNAME).pdf
 
 TECTONIC_PATH := $(shell which tectonic)
 # biblatex + biber: prefer latexmk unless you override with USE_LATEX=no
@@ -43,10 +44,20 @@ clean:
 	rm -f $(DOCNAME).pdf
 	rm -f *.bbl *.brf
 	rm -f *.nav *.snm *.vrb
+	rm -f $(LOCALDOC).aux $(LOCALDOC).bbl $(LOCALDOC).bcf $(LOCALDOC).blg
+	rm -f $(LOCALDOC).fdb_latexmk $(LOCALDOC).fls $(LOCALDOC).log $(LOCALDOC).out
+	rm -f $(LOCALDOC).pdf $(LOCALDOC).run.xml $(LOCALDOC).synctex.gz $(LOCALDOC).toc
+	rm -f papers/$(DOCNAME).pdf
 	rm -f fig/*-converted-to.pdf
 
 $(DOCNAME).pdf: $(SRC) $(LIBS)
 	$(LATEX) $(LATEXFLAGS) $(DOCNAME).tex
+
+$(LOCALDOC).pdf: $(DOCNAME).tex $(LOCALDOC).tex $(DOCNAME).bib Makefile
+	$(LATEX) $(LATEXFLAGS) $(LOCALDOC).tex
+
+papers/$(DOCNAME).pdf: $(LOCALDOC).pdf
+	cp $(LOCALDOC).pdf papers/$(DOCNAME).pdf
 
 # PS: no -f
 
