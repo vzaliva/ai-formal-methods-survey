@@ -1,16 +1,13 @@
+% Target venue: ACM Computing Surveys (CSUR). Manuscript preparation follows
+% \url{https://dl.acm.org/journal/csur/author-guidelines}: ACM template (acmsmall),
+% descriptive title, authors and affiliations, abstract (at most 100 words, no
+% mathematics or numeric citations), CCS concepts, and additional keywords.
+% Long surveys should not exceed 35 pages including references in this style.
+\documentclass[natbib=false,acmsmall,nonacm,11pt]{acmart}
 
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{xcolor}
+\acmJournal{CSUR}
+\acmArticleType{Review}
+
 \newif\iflocalpdfs
 \ifdefined\LOCALPDFS
   \localpdfstrue
@@ -39,6 +36,11 @@
      \usebibmacro{urldate}}%
   \usebibmacro{localpdf}}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+
 \hypersetup{
   colorlinks=true,
   linkcolor=blue!55!black,
@@ -46,35 +48,74 @@
   urlcolor=blue!55!black,
   pdftitle={LLMs and Formal Methods: A survey}
 }
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.55em}
 \setlist[itemize]{leftmargin=1.35em,itemsep=0.35em,topsep=0.4em}
 \renewcommand{\arraystretch}{1.15}
 
-\title{\textbf{LLMs and Formal Methods: A survey}}
-\author{}
-\date{\today}
+\title{LLMs and Formal Methods: A Survey}
+
+% CSUR requires author names, affiliations, and (for the corresponding author) email.
+\author{Vadim Zaliva}
+\affiliation{%
+  \institution{Tufts University}%
+  \city{Medford}%
+  \state{MA}%
+  \country{USA}}
+\email{vadim@zaliva.org}
+
+\begin{abstract}
+AI-assisted program synthesis is increasingly practical, but trustworthy use
+depends on formal specifications and mechanically checked correctness
+arguments. This survey is motivated by a verification-oriented agenda in which
+AI-generated code and proofs are grounded in a shared, human-reviewable
+intermediate specification, then validated by mechanised checking. The survey
+therefore focuses on research that helps formalise intent, generate
+verification-oriented code and proof artefacts, and connect informal
+requirements to proof-producing workflows. The emphasis is on systems with a
+direct formal-methods component rather than general coding assistance.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10011007.10011074.10011099</concept_id>
+<concept_desc>Software and its engineering~Software verification and validation</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10010147.10010257</concept_id>
+<concept_desc>Computing methodologies~Machine learning</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10003790.10002988</concept_id>
+<concept_desc>Theory of computation~Program verification</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Software and its engineering~Software verification and validation}
+\ccsdesc[300]{Computing methodologies~Machine learning}
+\ccsdesc[300]{Theory of computation~Program verification}
+
+\keywords{formal methods, large language models, program verification,
+  mechanised theorem proving, specification languages, neuro-symbolic methods}
 
 \begin{document}
+
 \maketitle
 
+% Optional for internal drafts; omit for camera-ready unless the venue requests a TOC.
 \tableofcontents
 
-\section{Scope and structure}
-
-This survey is organised around the two-way intersection between large language
-models and formal methods: \emph{formal methods for constraining or checking
-AI-assisted software development}, and \emph{LLMs for lowering the cost of
-formal specification, verification, and mechanised proof}. After a short section
-of surveys and roadmaps, the material is organised directly by technical
-category, combining papers, systems, benchmarks, and industry artefacts where that
-gives the clearest picture of the space. The main emphasis is on systems with a
-direct formal-methods component, but the survey also notes adjacent
-specification and programming artefacts when they illuminate likely interfaces
-between natural-language intent, intermediate specifications, AI-native
-implementation languages, and verifier-oriented workflows. 
-
 \section{Taxonomy}
+
+The taxonomy is organised around the parts of a verification-oriented workflow
+most relevant to the motivating research direction: formalising intent,
+generating verification artefacts, synthesising or repairing proofs, and
+evaluating these systems on shared benchmarks. Adjacent specification-oriented
+tools are included only where they clarify interfaces between informal
+requirements, intermediate specifications, and mechanised verification.
+
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth}}
 \toprule
 \textbf{Area} & \textbf{What sits here} & \textbf{Section} \\
@@ -211,5 +252,6 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
 \end{itemize}
 
-\printbibliography[heading=bibintoc,title={Bibliography}]
+\printbibliography[heading=bibintoc,title={References}]
+
 \end{document}
