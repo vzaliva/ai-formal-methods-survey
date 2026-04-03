@@ -12,13 +12,7 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage[backend=biber,style=numeric,sorting=none,url=true,doi=false,isbn=false,eprint=false]{biblatex}
-\addbibresource{00-surveys-foundations.bib}
-\addbibresource{01-specification-and-requirements.bib}
-\addbibresource{02-verified-code-generation-and-software-verification.bib}
-\addbibresource{03-ai-assisted-mechanised-proving.bib}
-\addbibresource{04-tla-model-checking-and-hardware-fv.bib}
-\addbibresource{05-benchmarks-and-datasets.bib}
-\addbibresource{06-industry-and-joint-projects.bib}
+\addbibresource{survey.bib}
 
 \hypersetup{
   colorlinks=true,
@@ -56,22 +50,22 @@ theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal
 reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
 
 \section{Taxonomy}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}p{0.60\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth}}
 \toprule
-\textbf{Area} & \textbf{What sits here} \\
+\textbf{Area} & \textbf{What sits here} & \textbf{Section} \\
 \midrule
 \endhead
-Surveys and roadmaps & High-level surveys, position papers, and roadmaps that frame the field and its major research directions. \\
-Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. \\
-Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. \\
-AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. \\
-Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. \\
-Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, TLA+, and hardware FV. \\
-Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. \\
+Surveys and roadmaps & High-level surveys, position papers, and roadmaps that frame the field and its major research directions. & \S\ref{sec:surveys-roadmaps} \\
+Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. & \S\ref{sec:specification-requirements} \\
+Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. & \S\ref{sec:verified-code} \\
+AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. & \S\ref{sec:mechanised-proving} \\
+Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. & \S\ref{sec:temporal-tla-hardware} \\
+Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, TLA+, and hardware FV. & \S\ref{sec:benchmarks-datasets} \\
+Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. & \S\ref{sec:adjacent-systems} \\
 \bottomrule
 \end{longtable}
 
-\section{Surveys and roadmaps}
+\section{Surveys and roadmaps}\label{sec:surveys-roadmaps}
 \begin{itemize}
 \item \textbf{Autoformalisation survey}.~\cite{DBLP:journals/corr/abs-2505-23486}
 \item \textbf{Survey on LLMs for software-requirement formalisation}.~\cite{DBLP:journals/corr/abs-2506-11874}
@@ -81,7 +75,7 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Two-way roadmap between requirements engineering and LLMs}.~\cite{DBLP:journals/infsof/FerrariS25}
 \end{itemize}
 
-\section{Specification languages and requirements}
+\section{Specification languages and requirements}\label{sec:specification-requirements}
 \begin{itemize}
 \item \textbf{VERIFAI}. Early work on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
 \item \textbf{Formal Specifications from Natural Language}. Direct NL-to-formal-spec framing paper.~\cite{DBLP:journals/corr/abs-2206-01962}
@@ -97,7 +91,7 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}. Broader evidence on where LLM assistance helps in formal-specification and verification workflows.~\cite{wang2025supportingsoftwareformalverification}
 \end{itemize}
 
-\section{Verified code generation and proof synthesis for code}
+\section{Verified code generation and proof synthesis for code}\label{sec:verified-code}
 \begin{itemize}
 \item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants, and proof-oriented annotations.~\cite{DBLP:journals/corr/abs-2411-15143}
 \item \textbf{Laurel}. Uses LLMs to unblock automated verification by synthesising useful proof and specification steps.~\cite{DBLP:journals/pacmpl/MugnierGPJY25}
@@ -115,7 +109,7 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}. Joint industry-academic evaluation in a safety-critical domain.~\cite{safety_critical_automotive_2025}
 \end{itemize}
 
-\section{AI-assisted mechanised proving}
+\section{AI-assisted mechanised proving}\label{sec:mechanised-proving}
 \begin{itemize}
 \item \textbf{GPT-f}. Early neural theorem-proving baseline for proof search guidance.~\cite{DBLP:journals/corr/abs-2009-03393}
 \item \textbf{Draft, Sketch, and Prove}. Guides formal theorem provers using informal proof sketches.~\cite{DBLP:journals/corr/abs-2210-12283}
@@ -139,7 +133,7 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{formal-conjectures}. Repository of Lean-formalised conjectures intended to support formal reasoning research.~\cite{formal_conjectures_repo}
 \end{itemize}
 
-\section{Temporal logic, TLA+, model checking, and hardware formal verification}
+\section{Temporal logic, TLA+, model checking, and hardware formal verification}\label{sec:temporal-tla-hardware}
 \begin{itemize}
 \item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}. Temporal-logic generation from natural-language inputs with structural guidance.~\cite{DBLP:journals/corr/abs-2406-07400}
 \item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}. Proof generation for TLAPS using retrieved verified proof fragments.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
@@ -148,7 +142,7 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
 \end{itemize}
 
-\section{Benchmarks and datasets}
+\section{Benchmarks and datasets}\label{sec:benchmarks-datasets}
 \begin{itemize}
 \item \textbf{miniF2F}, \textbf{PUTNAMBENCH}, and \textbf{FormalMATH}. Benchmarks for formal mathematical reasoning and theorem proving across systems and domains.~\cite{DBLP:conf/iclr/ZhengHP22,DBLP:conf/nips/TsoukalasLJXDJT24,DBLP:journals/corr/abs-2505-02735}
 \item \textbf{FIMO}. Challenge dataset for automated theorem proving.~\cite{DBLP:journals/corr/abs-2309-04295}
@@ -160,30 +154,12 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{AssertionBench} and \textbf{FVEval}. Benchmarks for hardware assertion generation and hardware formal-verification evaluation.~\cite{DBLP:conf/naacl/PulavarthiNDP25,DBLP:journals/corr/abs-2410-23299}
 \end{itemize}
 
-\section{Adjacent specification and AI-native coding systems}
+\section{Adjacent specification and AI-native coding systems}\label{sec:adjacent-systems}
 \begin{itemize}
 \item \textbf{Mog}. An AI-agent-oriented embedded language designed to be written by LLMs, with an explicit capability model and a compact language specification.~\cite{mog_language_project}
 \item \textbf{CodeSpeak}. A spec-centric programming language and toolchain that generates conventional code from maintained specifications using LLMs.~\cite{codespeak_project}
 \item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
 \end{itemize}
-
-\appendix
-
-\section{Companion BibTeX files}
-The bibliography is split into themed \texttt{.bib} files so that entries can be imported
-selectively into another document. The combined file contains every entry in one place.
-
-\begin{itemize}
-\item \path{00-surveys-foundations.bib}: Surveys, roadmaps, and framing papers.
-\item \path{01-specification-and-requirements.bib}: Natural-language to specification, intent formalisation, and requirements engineering.
-\item \path{02-verified-code-generation-and-software-verification.bib}: Verifier-in-the-loop code generation, annotation synthesis, and software-verification systems.
-\item \path{03-ai-assisted-mechanised-proving.bib}: Theorem proving, proof repair, Lean/Isabelle/Rocq systems, and prover infrastructure.
-\item \path{04-tla-model-checking-and-hardware-fv.bib}: Temporal logic, TLA+, TLAPS, hardware assertions, and formal-verification benchmarks.
-\item \path{05-benchmarks-and-datasets.bib}: Cross-cutting benchmarks and datasets.
-\item \path{06-industry-and-joint-projects.bib}: Industry-led or joint industry-academic systems and case studies.
-\item \path{llm-formal-methods-all.bib}: Combined bibliography with every entry in one file.
-\end{itemize}
-
 
 \printbibliography[heading=bibintoc,title={Complete bibliography}]
 \end{document}
