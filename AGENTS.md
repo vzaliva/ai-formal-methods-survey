@@ -49,7 +49,7 @@ Prefer commas or parentheses for asides; avoid framing subjective asides with da
 
 When adding new references:
 
-1. Prefer a canonical BibTeX entry. [DBLP](https://dblp.org/) is the primary source: search by title and use the exported entry.
+1. Prefer a canonical BibTeX entry. Search DBLP by title and use the exported entry. The canonical hosts are interchangeable official mirrors; spread requests among them to ease rate or availability limits: [dblp.org](https://dblp.org/), [dblp.uni-trier.de](https://dblp.uni-trier.de/), [dblp.dagstuhl.de](https://dblp.dagstuhl.de/).
 2. For arXiv preprints, an arXiv BibTeX export is fine when DBLP has no entry; if DBLP later lists the paper, prefer DBLP.
 3. For other venues, use publisher or repository exports when available (e.g. ACM, IEEE).
 4. [ALRAD](https://al.radbox.org/) is an additional BibTeX lookup when needed.
