@@ -18,7 +18,10 @@
   \localpdfsfalse
 \fi
 \providecommand{\SurveyBibFile}{survey.bib}
-\usepackage[backend=biber,style=numeric,sorting=none,url=true,doi=false,isbn=false,eprint=false]{biblatex}
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+]{biblatex}
 \addbibresource{\SurveyBibFile}
 
 \newbibmacro*{localpdf}{%
@@ -79,8 +82,8 @@ implementation languages, and verifier-oriented workflows.
 \endhead
 Surveys and roadmaps & High-level surveys, position papers, and roadmaps that frame the field and its major research directions. & \S\ref{sec:surveys-roadmaps} \\
 Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. & \S\ref{sec:specification-requirements} \\
-Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. & \S\ref{sec:verified-code} \\
-AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. & \S\ref{sec:mechanised-proving} \\
+Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs in deductive and contract-based program verification settings. & \S\ref{sec:verified-code} \\
+Automated proof search, synthesis, and repair & Automation-oriented proof search, proof synthesis, proof repair, and verifier-guided reasoning that can support proof-producing verification workflows. & \S\ref{sec:mechanised-proving} \\
 Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, and repository-scale proof. & \S\ref{sec:benchmarks-datasets} \\
 Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. & \S\ref{sec:adjacent-systems} \\
 \bottomrule
@@ -142,10 +145,9 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Can LLMs Enable Verification in Mainstream Programming?} Empirical study of LLM-assisted deductive verification across mainstream languages (Java/JML, C/Frama-C), assessing annotation correctness.~\cite{DBLP:journals/corr/abs-2503-14183}
 \end{itemize}
 
-\section{AI-assisted mechanised proving}\label{sec:mechanised-proving}
+\section{Automated proof search, synthesis, and repair}\label{sec:mechanised-proving}
 \begin{itemize}
 \item \textbf{GPT-f}. Early neural theorem-proving baseline for proof search guidance.~\cite{DBLP:journals/corr/abs-2009-03393}
-\item \textbf{Draft, Sketch, and Prove}. Guides formal theorem provers using informal proof sketches.~\cite{DBLP:journals/corr/abs-2210-12283}
 \item \textbf{ProofNet}. Autoformalisation and formal proving for undergraduate-level mathematics.~\cite{DBLP:journals/corr/abs-2302-12433}
 \item \textbf{Baldur}. Whole-proof generation and repair with large language models.~\cite{DBLP:conf/sigsoft/FirstRRB23}
 \item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{DBLP:journals/corr/abs-2306-15626}
@@ -153,7 +155,6 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{DBLP:journals/corr/abs-2405-14333,deepseek_prover_v15_repo}
 \item \textbf{SubgoalXL}. Subgoal-based expert learning for theorem proving.~\cite{DBLP:journals/corr/abs-2408-11172}
 \item \textbf{LEGO-Prover}. Neural theorem proving with growing libraries.~\cite{DBLP:journals/corr/abs-2310-00656}
-\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search, and premise selection.~\cite{DBLP:conf/neus/SongYA25}
 \item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{DBLP:journals/corr/abs-2505-05758}
 \item \textbf{HybridProver}. Combines theorem proving with LLM-driven proof synthesis and repair.~\cite{DBLP:journals/corr/abs-2505-15740}
 \item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}. Proof-language design for neural theorem proving over Isabelle/HOL.~\cite{xu2025minimalistprooflanguageneural}
