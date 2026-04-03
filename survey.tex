@@ -3,7 +3,7 @@
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+%\usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{enumitem}
@@ -102,20 +102,23 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{VERIFAI}. Early work on traceability and verification of natural-language requirements, useful as background for NL-to-spec workflows.~\cite{verifai_project}
 \item \textbf{Formal Specifications from Natural Language}. Direct NL-to-formal-spec framing paper.~\cite{DBLP:journals/corr/abs-2206-01962}
 \item \textbf{Autoformalization with Large Language Models}. Early LLM-based autoformalisation of informal mathematical text.~\cite{DBLP:journals/corr/abs-2205-12615}
-\item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{cosler2023nl2specinteractivelytranslatingunstructured}
+\item \textbf{Process-Driven Autoformalization in Lean 4}. Systematic pipeline for translating informal mathematical text into Lean 4 proofs with process supervision.~\cite{DBLP:journals/corr/abs-2406-01940}
+\item \textbf{Improving Autoformalization using Type Checking}. Shows that type-checking feedback significantly reduces autoformalization errors.~\cite{DBLP:journals/corr/abs-2406-07222}
+\item \textbf{nl2spec}. Interactive translation from unstructured requirements to temporal logic with editable sub-translations.~\cite{DBLP:conf/cav/CoslerHMST23}
 \item \textbf{NL2TL}. A general framework for mapping natural-language instructions to temporal logic across multiple domains.~\cite{DBLP:conf/emnlp/ChenGZF23}
-\item \textbf{SpecGen}. Automated generation of formal specifications from natural-language requirements.~\cite{ma2025specgenautomatedgenerationformal}
-\item \textbf{Specify What?} and \textbf{Seeking Specifications}. Neuro-symbolic work on deriving and refining specifications from informal descriptions.~\cite{granberry2024specifywhatenhancingneural,granberry2025seekingspecificationscaseneurosymbolic}
-\item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{xia2026doc2specsynthesizingformalprogramming}
-\item \textbf{Trustworthy Formal Natural Language Specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{gordon2023trustworthyformalnaturallanguage}
+\item \textbf{SpecGen}. Automated generation of formal specifications from natural-language requirements.~\cite{DBLP:conf/icse/MaL0XB25}
+\item \textbf{Specify What?} and \textbf{Seeking Specifications}. Neuro-symbolic work on deriving and refining specifications from informal descriptions.~\cite{DBLP:conf/ifm/GranberryAJ24,DBLP:journals/corr/abs-2504-21061}
+\item \textbf{Doc2Spec}. A multi-agent approach that induces formal specifications from natural-language documents.~\cite{DBLP:journals/corr/abs-2602-04892}
+\item \textbf{Trustworthy Formal Natural Language Specifications}. A proof-assistant-native route to formalising natural-language specifications inside Lean.~\cite{DBLP:conf/onward/GordonM23}
 \item \textbf{Microsoft intent formalisation agenda}. Industry framing that treats user-intent formalisation as a central reliability problem for AI-assisted coding.~\cite{intent_formalization_grand_challenge_project}
-\item \textbf{nl2postcond} and follow-on evaluation work. Microsoft-led efforts on turning programmer intent into checkable postconditions and evaluating this route for verification-aware languages.~\cite{endres2024largelanguagemodelstransform,lahiri2024evaluatingllmdrivenuserintentformalization}
-\item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}. Broader evidence on where LLM assistance helps in formal-specification and verification workflows.~\cite{wang2025supportingsoftwareformalverification}
+\item \textbf{nl2postcond} and follow-on evaluation work. Microsoft-led efforts on turning programmer intent into checkable postconditions and evaluating this route for verification-aware languages.~\cite{DBLP:journals/pacmse/EndresFCL24,DBLP:conf/fmcad/Lahiri24}
+\item \textbf{Supporting Software Formal Verification with Large Language Models: An Experimental Study}. Broader evidence on where LLM assistance helps in formal-specification and verification workflows.~\cite{DBLP:journals/corr/abs-2507-04857}
 \end{itemize}
 
 \section{Verified code generation and proof synthesis for code}\label{sec:verified-code}
 \begin{itemize}
 \item \textbf{DafnySynth / dafny-annotator}. LLM-assisted synthesis of Dafny assertions, invariants, and proof-oriented annotations.~\cite{DBLP:journals/corr/abs-2411-15143}
+\item \textbf{AI-assisted Dafny synthesis (Misu et al.)}. Systematic study of LLM-assisted synthesis of verified Dafny methods, evaluating multiple LLMs on generation and annotation tasks at FSE 2024.~\cite{DBLP:journals/pacmse/MisuLM024}
 \item \textbf{Laurel}. Uses LLMs to unblock automated verification by synthesising useful proof and specification steps.~\cite{DBLP:journals/pacmpl/MugnierGPJY25}
 \item \textbf{Verification with Ada/SPARK}. Evaluation of LLM-generated code in a SPARK-based verification setting.~\cite{DBLP:conf/icsoft/CramerM25}
 \item \textbf{LLM code generation with formal specifications and reactive synthesis}. Couples code generation with formal specifications and synthesis constraints.~\cite{DBLP:journals/corr/abs-2410-19736}
@@ -131,6 +134,13 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Generating Safety-Critical Automotive C-programs using LLMs with Formal Verification}. Joint industry-academic evaluation in a safety-critical domain.~\cite{safety_critical_automotive_2025}
 \item \textbf{Clover}. Closed-loop verifiable code generation: LLM synthesises Dafny programs while a separate verifier loop checks and repairs annotations.~\cite{DBLP:conf/saiv/SunSPB24}
 \item \textbf{SAFE}. Self-evolution approach to automated Rust/Verus proof generation, using iterative fine-tuning on successful proof traces.~\cite{DBLP:journals/corr/abs-2410-15756}
+\item \textbf{Enchanting}. Uses LLMs combined with static analysis and program verification to synthesise formal specifications from code.~\cite{DBLP:conf/cav/WenCSXQHLCT24}
+\item \textbf{Rango}. Adaptive retrieval-augmented proof generation for Coq/Rocq: retrieves similar verified proofs to guide LLM-based proof synthesis.~\cite{DBLP:journals/corr/abs-2412-14063}
+\item \textbf{Neural Synthesis for SMT-Assisted Proof-Oriented Programming}. Fine-tunes LLMs to generate F* proof obligations dischargeable by an SMT solver, targeting proof-oriented language verification.~\cite{DBLP:journals/corr/abs-2405-01787}
+\item \textbf{Lemur}. Integrates LLMs into automated program verification pipelines (Dafny/Frama-C), combining deductive verification with LLM-generated invariants and annotations.~\cite{DBLP:journals/corr/abs-2310-04870}
+\item \textbf{Finding Inductive Loop Invariants using LLMs}. Uses LLMs to synthesise candidate loop invariants, verified by Frama-C/Boogie, with iterative feedback.~\cite{DBLP:journals/corr/abs-2311-07948}
+\item \textbf{Evaluating LLMs for VeriFast specifications}. Evaluates the ability of LLMs to generate verifiable memory-safety specifications in VeriFast for C programs.~\cite{DBLP:journals/corr/abs-2411-02318}
+\item \textbf{Can LLMs Enable Verification in Mainstream Programming?} Empirical study of LLM-assisted deductive verification across mainstream languages (Java/JML, C/Frama-C), assessing annotation correctness.~\cite{DBLP:journals/corr/abs-2503-14183}
 \end{itemize}
 
 \section{AI-assisted mechanised proving}\label{sec:mechanised-proving}
@@ -140,17 +150,17 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{ProofNet}. Autoformalisation and formal proving for undergraduate-level mathematics.~\cite{DBLP:journals/corr/abs-2302-12433}
 \item \textbf{Baldur}. Whole-proof generation and repair with large language models.~\cite{DBLP:conf/sigsoft/FirstRRB23}
 \item \textbf{LeanDojo / ReProver}. Open tooling and datasets for Lean-based proving with retrieval-augmented models.~\cite{DBLP:journals/corr/abs-2306-15626}
-\item \textbf{COPRA}. In-context agentic theorem proving for interactive assistants.~\cite{copra_2024}
+\item \textbf{COPRA}. In-context agentic theorem proving for interactive assistants.~\cite{DBLP:journals/corr/abs-2310-04353}
 \item \textbf{DeepSeek-Prover}. Open Lean prover line with synthetic-data training; the public repository tracks released models.~\cite{DBLP:journals/corr/abs-2405-14333,deepseek_prover_v15_repo}
 \item \textbf{SubgoalXL}. Subgoal-based expert learning for theorem proving.~\cite{DBLP:journals/corr/abs-2408-11172}
 \item \textbf{LEGO-Prover}. Neural theorem proving with growing libraries.~\cite{DBLP:journals/corr/abs-2310-00656}
-\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search, and premise selection.~\cite{lean_copilot_2025}
-\item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{apollo_2025}
+\item \textbf{Lean Copilot}. LLM inference inside Lean for tactic suggestion, proof search, and premise selection.~\cite{DBLP:conf/neus/SongYA25}
+\item \textbf{APOLLO}. Lean+LLM collaboration driven by compiler-guided repair.~\cite{DBLP:journals/corr/abs-2505-05758}
 \item \textbf{HybridProver}. Combines theorem proving with LLM-driven proof synthesis and repair.~\cite{DBLP:journals/corr/abs-2505-15740}
 \item \textbf{A Minimalist Proof Language for Neural Theorem Proving over Isabelle/HOL}. Proof-language design for neural theorem proving over Isabelle/HOL.~\cite{xu2025minimalistprooflanguageneural}
-\item \textbf{Agentic Program Verification / AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback.~\cite{tu2026agenticverificationsoftwaresystems}
+\item \textbf{Agentic Program Verification / AutoRocq}. Agentic Rocq/Coq verification via iterative prover feedback.~\cite{DBLP:journals/corr/abs-2511-17330}
 \item \textbf{AutoReal on seL4}. LLM-driven theorem proving in an industrial-scale verification setting.~\cite{DBLP:journals/corr/abs-2602-08384}
-\item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}. Lightweight Isabelle/HOL proving with both a paper and an open implementation.~\cite{hou2026vibecodingllmpoweredtheorem,llm_isabelle_repo}
+\item \textbf{Vibe Coding an LLM-powered Theorem Prover / Isabellm}. Lightweight Isabelle/HOL proving with both a paper and an open implementation.~\cite{DBLP:journals/corr/abs-2601-04653,llm_isabelle_repo}
 \item \textbf{LeanNavigator}. Large-scale generation of additional Lean theorems and proofs from Mathlib4.~\cite{DBLP:journals/corr/abs-2503-04772}
 \item \textbf{AlphaProof programme}. Google DeepMind's formal mathematical reasoning effort, framed publicly through reinforcement learning and formal proof search.~\cite{alphaproof_blog_2024,alphaproof_nature_2025}
 \item \textbf{Harmonic / Aristotle}. Industry effort on olympiad-level automated theorem proving and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2510-01346}
@@ -158,15 +168,31 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{TheoremLlama}. Fine-tunes general-purpose LLMs on Lean 4 proof data to create Lean-expert models.~\cite{DBLP:journals/corr/abs-2407-03203}
 \item \textbf{FVEL}. Interactive formal verification environment coupling LLMs with Isabelle/HOL for software property proving.~\cite{DBLP:journals/corr/abs-2406-14408}
 \item \textbf{Selene}. Pioneer work on automated proof generation for software verification, bridging LLMs with Lean for repository-scale proofs.~\cite{DBLP:journals/corr/abs-2401-07663}
-\item \textbf{Goedel-Prover}. Frontier open-source Lean prover trained on large synthetic datasets.~\cite{DBLP:journals/corr/abs-2502-07640}
+\item \textbf{HyperTree Proof Search}. Tree-search algorithm for neural theorem proving in Lean and Metamath, with online training via MCTS-style exploration.~\cite{DBLP:journals/corr/abs-2205-11491}
+\item \textbf{Lean-STaR}. Trains LLMs to interleave informal thinking steps with Lean proof steps, improving proof generation quality.~\cite{DBLP:journals/corr/abs-2407-10040}
+\item \textbf{REFACTOR}. Learns to identify and extract reusable lemmas from existing Lean proofs to grow the library.~\cite{DBLP:journals/corr/abs-2402-17032}
+\item \textbf{Graph2Tac}. Graph neural network approach to premise selection and tactic prediction for Lean/Coq.~\cite{DBLP:journals/corr/abs-2401-02949}
+\item \textbf{Formal Mathematics Statement Curriculum Learning}. Uses expert iteration and curriculum learning to train LLMs for formal mathematics in Lean and Metamath.~\cite{DBLP:journals/corr/abs-2202-01344}
+\item \textbf{Llemma}. Open language model specialised for mathematics, pre-trained on formal and informal mathematical text; widely used as a backbone for theorem-proving models.~\cite{DBLP:journals/corr/abs-2310-10631}
+\item \textbf{Goedel-Prover} and \textbf{Goedel-Prover-V2}. Frontier open-source Lean provers trained on large synthetic datasets, with V2 adding scaffolded data synthesis and self-correction.~\cite{DBLP:journals/corr/abs-2502-07640,DBLP:journals/corr/abs-2508-03613}
 \item \textbf{DeepSeek-Prover-V2}. Advances Lean theorem proving with reinforcement learning over subgoal decomposition trees.~\cite{DBLP:journals/corr/abs-2504-21801}
 \item \textbf{Kimina-Prover}. Large formal reasoning model trained with RL, achieving strong miniF2F results.~\cite{DBLP:journals/corr/abs-2504-11354}
+\item \textbf{AlphaGeometry}. Neurosymbolic system that solves olympiad geometry problems at silver-medal level using a language model paired with a symbolic geometry engine.~\cite{DBLP:journals/nature/TrinhWLHL24}
+\item \textbf{Autoformalizing Euclidean Geometry}. Demonstrates autoformalization of Euclidean geometry into Lean, translating informal geometric statements and proofs.~\cite{DBLP:conf/icml/MurphyYSLAS24}
+\item \textbf{LINC} and \textbf{Logic-LM} and \textbf{SatLM}. Neurosymbolic approaches that combine LLMs with first-order logic provers, symbolic solvers, and SAT/SMT reasoners respectively to achieve faithful formal reasoning.~\cite{DBLP:conf/emnlp/OlaussonGLZSTL23,DBLP:conf/emnlp/PanAWW23,DBLP:conf/nips/YeCDD23}
+\item \textbf{Proof Artifact Co-Training (PACT)}. Jointly trains a language model on proof artifacts (tactic states, intermediate goals) alongside informal text, improving formal proof generation across interactive proof assistants.~\cite{DBLP:conf/iclr/HanRWAP22}
+\item \textbf{Lyra}. Orchestrates dual correction in automated theorem proving: an LLM generates proof drafts while a separate refinement loop corrects both the informal reasoning and formal proof steps.~\cite{DBLP:journals/corr/abs-2309-15806}
+\item \textbf{Subgoal-based Demonstration Learning}. ICML 2024 approach that decomposes formal proofs into subgoals and uses demonstration learning to train LLMs on structured subgoal sequences for Lean theorem proving.~\cite{DBLP:conf/icml/ZhaoLK24}
+\item \textbf{HunyuanProver}. Scalable data synthesis framework combined with guided tree search for automated Lean theorem proving, achieving strong miniF2F results.~\cite{DBLP:journals/corr/abs-2412-20735}
+\item \textbf{Proving Theorems Recursively}. Decomposes complex theorems into simpler subgoals recursively, using LLMs to prove each subgoal independently and assemble the full proof.~\cite{DBLP:journals/corr/abs-2405-14414}
+\item \textbf{BFS-Prover}. Scalable best-first tree search for LLM-based automatic theorem proving in Lean, with online value estimation guiding proof search.~\cite{DBLP:journals/corr/abs-2502-03438}
+\item \textbf{InternLM2.5-StepProver}. Advances automated Lean theorem proving via expert iteration on large-scale problem sets, training step-level models with iterative data synthesis.~\cite{DBLP:journals/corr/abs-2410-15700}
 \end{itemize}
 
 \section{Temporal logic, TLA+, model checking, and hardware formal verification}\label{sec:temporal-tla-hardware}
 \begin{itemize}
 \item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}. Temporal-logic generation from natural-language inputs with structural guidance.~\cite{DBLP:journals/corr/abs-2406-07400}
-\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}. Proof generation for TLAPS using retrieved verified proof fragments.~\cite{zhou2025retrievalaugmentedtlapsproofgeneration}
+\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}. Proof generation for TLAPS using retrieved verified proof fragments.~\cite{DBLP:journals/corr/abs-2501-03073}
 \item \textbf{Towards Language Model Guided TLA+ Proof Automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{DBLP:journals/corr/abs-2512-09758}
 \item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
 \item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
@@ -184,6 +210,9 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{AssertionBench} and \textbf{FVEval}. Benchmarks for hardware assertion generation and hardware formal-verification evaluation.~\cite{DBLP:conf/naacl/PulavarthiNDP25,DBLP:journals/corr/abs-2410-23299}
 \item \textbf{miniCodeProps}. Minimal Lean 4 benchmark for proving properties of small programs, useful for evaluating code-verification LLMs.~\cite{DBLP:journals/corr/abs-2406-11915}
 \item \textbf{Proving the Coding Interview}. Lean 4 benchmark built from interview-style algorithmic problems requiring formal verification proofs.~\cite{DBLP:journals/corr/abs-2502-05714}
+\item \textbf{Lean Workbook}. Large-scale dataset of Lean 4 problem statements collected from competition mathematics, intended to support training and evaluation of formal proving systems.~\cite{DBLP:journals/corr/abs-2406-03847}
+\item \textbf{Herald}. Benchmark for human-in-the-loop formal reasoning evaluation, measuring LLM ability to assist human provers on interactive theorem-proving tasks.~\cite{DBLP:journals/corr/abs-2410-10878}
+\item \textbf{miniCTX}. Context-dependent theorem proving benchmark for Lean that requires reasoning about file-level and project-level context beyond local tactic state.~\cite{DBLP:journals/corr/abs-2408-03350}
 \end{itemize}
 
 \section{Adjacent specification and AI-native coding systems}\label{sec:adjacent-systems}
