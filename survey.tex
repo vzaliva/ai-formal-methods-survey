@@ -11,8 +11,30 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{xcolor}
+\newif\iflocalpdfs
+\ifdefined\LOCALPDFS
+  \localpdfstrue
+\else
+  \localpdfsfalse
+\fi
+\providecommand{\SurveyBibFile}{survey.bib}
 \usepackage[backend=biber,style=numeric,sorting=none,url=true,doi=false,isbn=false,eprint=false]{biblatex}
-\addbibresource{survey.bib}
+\addbibresource{\SurveyBibFile}
+
+\newbibmacro*{localpdf}{%
+  \iflocalpdfs
+    \iffieldundef{file}
+      {}
+      {\setunit{\addspace}%
+       \printtext[brackets]{\href{run:\thefield{file}}{local PDF}}}%
+  \fi}
+\renewbibmacro*{url+urldate}{%
+  \printfield{url}%
+  \iffieldundef{urlyear}
+    {}
+    {\setunit*{\addspace}%
+     \usebibmacro{urldate}}%
+  \usebibmacro{localpdf}}
 
 \hypersetup{
   colorlinks=true,
