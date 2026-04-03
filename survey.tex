@@ -50,7 +50,7 @@
 
 \title{\textbf{LLMs and Formal Methods: A survey}}
 \author{}
-\date{1 April 2026}
+\date{\today}
 
 \begin{document}
 \maketitle
@@ -58,18 +58,18 @@
 \tableofcontents
 
 \section{Scope and structure}
-This survey is organised around the two-way intersection between large language models and formal methods:
-\emph{formal methods for constraining or checking AI-assisted software development}, and
-\emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. After
-a short section of surveys and roadmaps, the material is organised directly by technical category,
-mixing papers, systems, benchmarks, and industry artefacts where that gives the clearest picture
-of the space. The main emphasis is on systems with a direct formal-methods component, but the
-survey also notes adjacent specification and programming artefacts when they illuminate likely
-interfaces between natural-language intent, intermediate specifications, AI-native implementation
-languages, and verifier-oriented workflows. Representative surveys and roadmaps that frame the
-field include the main autoformalisation survey, the software-requirements survey, the
-theorem-proving survey, and broader roadmaps on trustworthy AI agents and formal mathematical
-reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
+
+This survey is organised around the two-way intersection between large language
+models and formal methods: \emph{formal methods for constraining or checking
+AI-assisted software development}, and \emph{LLMs for lowering the cost of
+formal specification, verification, and mechanised proof}. After a short section
+of surveys and roadmaps, the material is organised directly by technical
+category, combining papers, systems, benchmarks, and industry artefacts where that
+gives the clearest picture of the space. The main emphasis is on systems with a
+direct formal-methods component, but the survey also notes adjacent
+specification and programming artefacts when they illuminate likely interfaces
+between natural-language intent, intermediate specifications, AI-native
+implementation languages, and verifier-oriented workflows. 
 
 \section{Taxonomy}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth}}
@@ -81,8 +81,7 @@ Surveys and roadmaps & High-level surveys, position papers, and roadmaps that fr
 Specification languages and requirements & Natural language to logic/specification, intent formalisation, and auditable requirement capture. & \S\ref{sec:specification-requirements} \\
 Verified code generation and proof synthesis for code & Verifier-in-the-loop generation of code, contracts, assertions, and proofs for Dafny, Verus, ACSL, SPARK, and related systems. & \S\ref{sec:verified-code} \\
 AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. & \S\ref{sec:mechanised-proving} \\
-Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. & \S\ref{sec:temporal-tla-hardware} \\
-Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, TLA+, and hardware FV. & \S\ref{sec:benchmarks-datasets} \\
+Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, and repository-scale proof. & \S\ref{sec:benchmarks-datasets} \\
 Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. & \S\ref{sec:adjacent-systems} \\
 \bottomrule
 \end{longtable}
@@ -189,15 +188,6 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{InternLM2.5-StepProver}. Advances automated Lean theorem proving via expert iteration on large-scale problem sets, training step-level models with iterative data synthesis.~\cite{DBLP:journals/corr/abs-2410-15700}
 \end{itemize}
 
-\section{Temporal logic, TLA+, model checking, and hardware formal verification}\label{sec:temporal-tla-hardware}
-\begin{itemize}
-\item \textbf{Guiding LLM Temporal Logic Generation with Explicit Separation of Data and Control}. Temporal-logic generation from natural-language inputs with structural guidance.~\cite{DBLP:journals/corr/abs-2406-07400}
-\item \textbf{Retrieval-Augmented TLAPS Proof Generation with Large Language Models}. Proof generation for TLAPS using retrieved verified proof fragments.~\cite{DBLP:journals/corr/abs-2501-03073}
-\item \textbf{Towards Language Model Guided TLA+ Proof Automation}. Hierarchical decomposition for TLA+ proof obligations.~\cite{DBLP:journals/corr/abs-2512-09758}
-\item \textbf{AssertLLM}. Assertion generation from design specifications and waveforms for hardware verification.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
-\item \textbf{STELLAR}. Structure-guided retrieval and generation for SystemVerilog assertions.~\cite{DBLP:journals/corr/abs-2601-19903}
-\end{itemize}
-
 \section{Benchmarks and datasets}\label{sec:benchmarks-datasets}
 \begin{itemize}
 \item \textbf{miniF2F}, \textbf{PUTNAMBENCH}, and \textbf{FormalMATH}. Benchmarks for formal mathematical reasoning and theorem proving across systems and domains.~\cite{DBLP:conf/iclr/ZhengHP22,DBLP:conf/nips/TsoukalasLJXDJT24,DBLP:journals/corr/abs-2505-02735}
@@ -206,8 +196,6 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{A benchmark for vericoding}, \textbf{AlgoVeri}, and \textbf{CASP}. Evaluation sets for formally verified program synthesis and code-level proof generation.~\cite{DBLP:journals/corr/abs-2509-22908,DBLP:journals/corr/abs-2602-09464,DBLP:conf/vecos/HertzbergSKL25}
 \item \textbf{DafnyBench} and \textbf{DafnyCOMP}. Benchmarks and competitions for LLM-assisted Dafny verification workflows.~\cite{DBLP:journals/tmlr/LoughridgeSACS025,DBLP:journals/corr/abs-2509-23061}
 \item \textbf{VeriSoftBench}. Repository-scale Lean benchmark focused on software-verification obligations rather than pure mathematics.~\cite{DBLP:journals/corr/abs-2602-18307}
-\item \textbf{TLAiBench}. Benchmark repository for TLA+ specification tasks.~\cite{tlai_bench_project}
-\item \textbf{AssertionBench} and \textbf{FVEval}. Benchmarks for hardware assertion generation and hardware formal-verification evaluation.~\cite{DBLP:conf/naacl/PulavarthiNDP25,DBLP:journals/corr/abs-2410-23299}
 \item \textbf{miniCodeProps}. Minimal Lean 4 benchmark for proving properties of small programs, useful for evaluating code-verification LLMs.~\cite{DBLP:journals/corr/abs-2406-11915}
 \item \textbf{Proving the Coding Interview}. Lean 4 benchmark built from interview-style algorithmic problems requiring formal verification proofs.~\cite{DBLP:journals/corr/abs-2502-05714}
 \item \textbf{Lean Workbook}. Large-scale dataset of Lean 4 problem statements collected from competition mathematics, intended to support training and evaluation of formal proving systems.~\cite{DBLP:journals/corr/abs-2406-03847}
@@ -222,5 +210,5 @@ Adjacent specification and AI-native coding systems & Spec-centric languages, AI
 \item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
 \end{itemize}
 
-\printbibliography[heading=bibintoc,title={Complete bibliography}]
+\printbibliography[heading=bibintoc,title={Bibliography}]
 \end{document}
