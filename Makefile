@@ -10,13 +10,7 @@ PDFVIEWER=evince
 
 DOCNAME=survey
 
-BIBS=	00-surveys-foundations.bib \
-	01-specification-and-requirements.bib \
-	02-verified-code-generation-and-software-verification.bib \
-	03-ai-assisted-mechanised-proving.bib \
-	04-tla-model-checking-and-hardware-fv.bib \
-	05-benchmarks-and-datasets.bib \
-	06-industry-and-joint-projects.bib
+BIBS=	survey.bib
 
 SRC=	$(DOCNAME).tex \
 	$(BIBS) \
