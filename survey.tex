@@ -47,9 +47,12 @@ This survey is organised around the two-way intersection between large language 
 \emph{LLMs for lowering the cost of formal specification, verification, and mechanised proof}. The
 survey is split into \hyperref[sec:projects]{projects} and \hyperref[sec:papers]{papers}, with
 separate research and industry subsections, and with an additional classification by technical
-area. Representative surveys and roadmaps that frame the field include the main autoformalisation
-survey, the software-requirements survey, the theorem-proving survey, and broader roadmaps on
-trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
+area. The main emphasis is on systems with a direct formal-methods component, but the survey also
+notes adjacent specification and programming artefacts when they illuminate likely interfaces
+between natural-language intent, intermediate specifications, AI-native implementation languages,
+and verifier-oriented workflows. Representative surveys and roadmaps that frame the field include
+the main autoformalisation survey, the software-requirements survey, the theorem-proving survey,
+and broader roadmaps on trustworthy AI agents and formal mathematical reasoning.~\cite{DBLP:journals/corr/abs-2505-23486,DBLP:journals/corr/abs-2506-11874,DBLP:journals/corr/abs-2404-09939,DBLP:journals/corr/abs-2412-06512,DBLP:conf/icml/YangPHLLCS25,DBLP:journals/infsof/FerrariS25}
 
 \section{Taxonomy}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}p{0.60\textwidth}}
@@ -62,6 +65,7 @@ Verified code generation and proof synthesis for code & Verifier-in-the-loop gen
 AI-assisted mechanised proving & Interactive theorem proving, premise selection, tactic generation, whole-proof synthesis, and proof repair in Lean, Isabelle, Rocq/Coq, and Metamath. \\
 Temporal logic, TLA+, model checking, and hardware FV & Temporal-logic generation, TLAPS/TLA+ proof support, and assertion synthesis for hardware formal verification. \\
 Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable code generation, repository-scale proof, and hardware FV. \\
+Adjacent specification and AI-native coding systems & Spec-centric languages, AI-oriented implementation languages, and spec-driven development toolchains that are not themselves formal methods results but may shape how intent is structured before verification. \\
 \bottomrule
 \end{longtable}
 
@@ -138,6 +142,14 @@ Benchmarks and datasets & Shared evaluation sets for theorem proving, verifiable
 \begin{itemize}
 \item \textbf{Automotive C generation with formal verification}. Joint industry-academic evaluation on safety-critical automotive software.~\cite{safety_critical_automotive_2025}
 \item \textbf{AssertLLM}. Joint academic-industry hardware FV workflow.~\cite{DBLP:conf/aspdac/0003FLLLXZ25}
+\end{itemize}
+
+\subsubsection{Adjacent specification and AI-native coding systems}
+
+\begin{itemize}
+\item \textbf{Mog}. An AI-agent-oriented embedded language designed to be written by LLMs, with an explicit capability model and a compact language specification.~\cite{mog_language_project}
+\item \textbf{CodeSpeak}. A spec-centric programming language and toolchain that generates conventional code from maintained specifications using LLMs.~\cite{codespeak_project}
+\item \textbf{Spec Kit}. GitHub's open-source toolkit for spec-driven development with AI agents, centred on turning specifications into implementation plans and executable workflows.~\cite{github_spec_kit}
 \end{itemize}
 
 \section{Papers}\label{sec:papers}
