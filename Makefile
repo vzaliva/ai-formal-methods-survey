@@ -48,7 +48,6 @@ clean:
 	rm -f $(LOCALDOC).fdb_latexmk $(LOCALDOC).fls $(LOCALDOC).log $(LOCALDOC).out
 	rm -f $(LOCALDOC).pdf $(LOCALDOC).run.xml $(LOCALDOC).synctex.gz $(LOCALDOC).toc
 	rm -f papers/$(DOCNAME).pdf
-	rm -f fig/*-converted-to.pdf
 
 $(DOCNAME).pdf: $(SRC) $(LIBS)
 	$(LATEX) $(LATEXFLAGS) $(DOCNAME).tex
