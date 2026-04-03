@@ -59,10 +59,5 @@ $(LOCALDOC).pdf: $(DOCNAME).tex $(LOCALDOC).tex $(DOCNAME).bib Makefile
 papers/$(DOCNAME).pdf: $(LOCALDOC).pdf
 	cp $(LOCALDOC).pdf papers/$(DOCNAME).pdf
 
-# PS: no -f
-
-install: $(DOCNAME).pdf
-	cp $(DOCNAME).pdf built_doc/
-
-run: $(DOCNAME).pdf
-	$(PDFVIEWER) $(DOCNAME).pdf
+run: papers/$(DOCNAME).pdf
+	cd papers && $(PDFVIEWER) $(DOCNAME).pdf
