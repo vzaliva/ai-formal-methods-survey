@@ -21,6 +21,11 @@ environment, use it to search and retrieve papers from
 
 - Build with `make` (see the project `Makefile` for targets). For the main document, `make survey.pdf` is typical.
 
+## Version control
+
+- Never create a git commit without the maintainer's explicit approval for that specific commit. Prepare and show the change; do not commit on your own initiative.
+- Do not include any Claude/AI attribution (e.g. "Co-Authored-By: Claude", session links) in commit messages or pull request descriptions.
+
 ## LaTeX typography
 
 In `.tex` files:
@@ -53,4 +58,4 @@ When adding new references:
 2. For arXiv preprints, an arXiv BibTeX export is fine when DBLP has no entry; if DBLP later lists the paper, prefer DBLP.
 3. For other venues, use publisher or repository exports when available (e.g. ACM, IEEE).
 4. [ALRAD](https://al.radbox.org/) is an additional BibTeX lookup when needed.
-5. When adding a new entry, obtain a PDF copy in `papers/` where practical; if you do, add a `file` field to that entry set to the PDF filename only (no path).
+5. When adding a new entry, obtain a PDF copy in `papers/` where practical; if you do, add a `file` field to that entry set to the PDF filename only (no path). `papers/*.pdf` is tracked with Git LFS (see `README.md`); `git add`/`git commit` work as normal once Git LFS is installed, no extra steps needed.
